@@ -1,0 +1,9 @@
+﻿conflict_id,topic,observed_conflict,usage_rule,basis,status
+CF-001,Countries/regions,Old CN marketing page 146+ vs current company story/filings 180+,Use 180+ for current formal use; retain old page only as stale-page example,B01/A02 outrank legacy page,resolved
+CF-002,Employees,"Old CN marketing page 5,000+ vs 2025 annual 6,304 and 2026H1 6,239","Use period-specific filing figures; current story rounds to 6,000+",A01/A02 outrank marketing page,resolved
+CF-003,R&D employee share,Old marketing page 47.75% vs 2026H1 56.47% and current global story 56.3%,Use filing for exact period; website rounded current figure is corroborative,A02 > B01,resolved
+CF-004,Office count,Old page 30+ vs 2026H1/current sources 50+ offices,Use 50+ when current; if geography count needed cite filing wording,A02/B01 > legacy page,resolved
+CF-005,Brand taxonomy,Financial reports use 3 segments while One Anker uses 5 consumer product categories,Do not convert one to the other. Use 3 segments for financial analysis and 5 categories for brand/experience analysis,"different dimensions, not contradiction",resolved
+CF-006,Brand naming after Sep 2026,Official sites may still show eufy/soundcore as independent brands while One Anker says unified brand,"One Anker transition is gradual; new products lead, legacy names/channels transition over time",B02,resolved
+CF-007,Mobile charging No.1 duration,Older pages may say 2020-2024 five years; current Thus page says 2020-2025 six years,"Use latest Euromonitor footnoted claim: 2020-2025, research completed Apr 2026",B11,resolved
+CF-008,Robot strategy timing,Earlier prep notes said 2026; official corporate article index states strategy was formally released in March 2025,Correct prep database to March 2025; cite official corporate article when used,official corporate post index,corrected

@@ -1,0 +1,6 @@
+name,repository,component,license_or_terms,adoption,notes,checked_at
+Anthropic Skill Creator,https://github.com/anthropics/skills,skills/skill-creator/SKILL.md,Anthropic skill-specific terms,principles only,"Progressive disclosure; triggering; eval-driven iteration. Official source code not redistributed.",2026-10-11
+Anthropic Frontend Design,https://github.com/anthropics/skills,skills/frontend-design/SKILL.md,Anthropic skill-specific terms,principles only,"Subject-matter grounded visual direction; deliberate typography/layout; avoid templated defaults. Official source code not redistributed.",2026-10-11
+Anthropic Webapp Testing,https://github.com/anthropics/skills,skills/webapp-testing/SKILL.md,Anthropic skill-specific terms,principles only,"Actual browser/Playwright verification before UI completion claims. Official source code not redistributed.",2026-10-11
+Superpowers,https://github.com/obra/superpowers,brainstorming / dispatching-parallel-agents / writing-plans / verification-before-completion,MIT,method integrated + optional install,"Independent parallel tasks; clear agent briefs; evidence before completion.",2026-10-11
+Humanizer-zh,https://github.com/op7418/Humanizer-zh,SKILL.md,MIT,method integrated + optional install,"Natural Chinese editing while preserving facts certainty and author voice.",2026-10-11

@@ -1,0 +1,25 @@
+﻿source_id,tier,title,date,publisher,url,use,status
+A01,A1,2025年年度报告全文,2026-04-10,CNINFO/公司法定披露,https://static.cninfo.com.cn/finalpage/2026-04-10/1225090973.PDF,2025财务、业务分部、地区渠道、人员研发、库存、风险,verified-primary
+A02,A2,2026年半年度报告全文,2026-08-31,CNINFO/公司法定披露,https://static.cninfo.com.cn/finalpage/2026-08-31/1225533054.PDF,2026H1财务、业务分部、地区渠道、研发、人员、产品与经营进展,verified-primary
+A03,A1,H股挂牌并上市交易公告,2026-07-02,CNINFO/公司法定披露,https://static.cninfo.com.cn/finalpage/2026-07-02/1225406962.PDF,H股上市日期、代码、发行规模与价格,verified-primary
+A04,A1,香港全球发售招股书,2026-06-23,HKEX,https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0623/2026062300037.pdf,全球发售、风险、公司与业务信息,verified-primary
+B01,B1,Our Story / 关于我们,2026-10-11抓取,Anker Innovations官网,https://www.anker-in.com/story,当前公司定位、180+国家、200M+用户、56.3%研发员工、使命愿景价值观、管理层,verified-official
+B02,B1,IFA 2026: One Anker品牌统一公告,2026-09-17,Anker Innovations官网,https://www.anker-in.com/posts/ifa2026,五大品牌统一、Anker for You/Home、MindBase、柏林店、过渡原则,verified-official
+B03,B1,IFA 2026专题页,2026-09,Anker Innovations官网,https://www.anker-in.com/ifa,五大产品类别、One Anker定位、当前品牌总叙事,verified-official
+B04,B2,Anker Careers首页,2026-10-11抓取,Anker Careers,https://career.anker-in.com/,One Anker、2023 Lab、雇主品牌与技术平台,verified-official
+B05,B2,Culture & Stage,2026-10-11抓取,Anker Careers,https://career.anker-in.com/culture-stage/,AI Native组织、AI Pilot、Skills、Scrum+AI、TGIF、Creation Festival,verified-official
+B06,B2,2027 Campus Recruitment,2026-10-11抓取,Anker Careers,https://career.anker-in.com/universities/recruitment/new,Brand Communications Specialist等岗位职责与岗位信号,verified-official
+B07,B2,Marketing career direction,2026-10-11抓取,Anker Careers,https://career.anker-in.com/universities/recruitment/directions/?domain=ipc&from=intern,Brand & Growth、Content & Creative、Channel & Customer Management等方向,verified-official
+B08,B1,Anker Day 2026,2026-05-27,Anker Innovations官网,https://www.anker-in.com/posts/anker-day-2026,年度多品牌发布活动、媒体/零售买手/关键影响者、产品与技术展示,verified-official
+B09,B1,Tomorrowland多年度合作,2026-05-20,Anker Innovations官网,https://www.anker-in.com/posts/tomorrowland,场景合作、全球独家品类合作、直播/现场/产品整合,verified-official
+B10,B1,Coachella 2025官方充电伙伴,2025,Anker Innovations官网,https://www.anker-in.com/posts/anker-powers-up-coachella-valley-music-and-arts-festival-2025-as-the-official-charging-partner,现场充电、太阳能储物柜、创作者互动、SOLIX展示,verified-official
+B11,B1,Thus AI Chip产品技术页,2026,Anker官网,https://www.anker.com/ca/anker-thus-ai-chip,存算一体、150×算力口径及其限定、端侧音频AI、Euromonitor移动充电No.1脚注,verified-official
+B12,B1,Product Recalls,2026-10-11抓取,Anker官网,https://www.anker.com/product-recalls,2025年部分移动电源召回；不同市场型号列表略有差异,verified-official
+B13,B2,Corporate Compliance,2025-08-15,Anker Innovations官网,https://www.anker-in.com/posts/corporate-compliance,反腐败、贸易与国际合规原则,verified-official
+B14,B2,Sustainability Commitment / ESG,2026,Anker Innovations官网,https://www.anker-in.com/environmental-and-socia,ESG框架、180+国家/200M+用户、报告入口,verified-official
+C01,C,阳萌36氪访谈：强烈想赢,2022-04-08,36氪,https://www.36kr.com/p/1688527295206533,成就导向、长期主义、线下能力、人才特质；作为创始人访谈辅助，不作为审计事实,verified-third-party
+C02,C,阳萌/知存科技访谈：Thus与7系品牌,2026,36氪,https://www.36kr.com/p/3838642718607622,端侧AI逻辑、音频研发、从用户痛点推导技术路径、7系品牌思想,verified-third-party
+B15,B2,Platform & Support / Ownership,2026-10-11抓取,Anker Careers,https://career.anker-in.com/platform-support/,Ownership、27+产品线、50+产品商业化团队、成长机制,verified-official
+B16,B1,机器人战略官方内容索引,2025,Anker Innovations官网,https://magento.anker-in.com/posts?category=investor,官方内容称2025年3月发布机器人战略、家庭用户基础等,verified-official
+B17,B1,IFA 2025 AI & Robotics发布,2025-09-04,Anker Innovations官网,https://www.anker-in.com/posts/anker-innovations-unveils-next-generation-products-powered-by-advanced-ai-robotics-and-ultimate-innovation,AI/机器人/品牌方向，One Anker前一阶段,verified-official
+B18,B1,Local Intelligence position paper,2026-09,Anker Innovations官网,https://static-internet.anker-in.com/page/2089437745949585410,家庭本地智能、云架构/隐私论述,verified-official

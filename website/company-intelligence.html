@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Anker Company Intelligence V5.1</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>
+  :root{--ink:#172033;--muted:#667085;--line:#e6e9ef;--brand:#0b63ce;--soft:#f3f7fc;--warn:#9a6700}html{scroll-behavior:smooth}body{max-width:1080px;margin:0 auto;padding:48px 34px 90px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);line-height:1.72;background:#fff}h1{font-size:38px;line-height:1.18;letter-spacing:-.6px;margin:0 0 22px}h2{font-size:27px;margin-top:54px;padding-top:16px;border-top:1px solid var(--line)}h3{font-size:20px;margin-top:32px}h4{font-size:16px;margin-top:24px;color:#344054}p,li{font-size:15px}blockquote{margin:18px 0;padding:13px 18px;background:var(--soft);border-left:4px solid var(--brand);color:#344054}table{width:100%;border-collapse:collapse;margin:18px 0 26px;font-size:13.5px;display:block;overflow:auto}th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}th{background:var(--soft);white-space:nowrap}code{background:#f2f4f7;padding:2px 5px;border-radius:5px}pre{background:#111827;color:#e5e7eb;padding:16px;border-radius:10px;overflow:auto}a{color:var(--brand);text-decoration:none}hr{border:0;border-top:1px solid var(--line);margin:48px 0}strong{font-weight:750}body:before{content:"ANKER COMPANY INTELLIGENCE · V5.1 · VERIFIED THROUGH 2026-10-11";display:block;color:var(--brand);font-size:12px;font-weight:800;letter-spacing:.8px;margin-bottom:18px}@media(max-width:700px){body{padding:28px 18px 70px}h1{font-size:30px}h2{font-size:23px}}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Anker Company Intelligence V5.1</h1>
+</header>
+<h1
+id="安克创新公司事业深研总库anker-company-intelligence">安克创新公司事业深研总库【Anker
+Company Intelligence】</h1>
+<blockquote>
+<p>V5.1｜核验截止 2026-10-11。此文件是整合阅读版；Claude
+实际工作时优先按 <code>company-intelligence/README.md</code>
+分模块加载，避免上下文浪费。</p>
+</blockquote>
+<h2 id="使用原则">使用原则</h2>
+<ul>
+<li>财务 / 上市 / 人员等硬事实优先采用法定披露；</li>
+<li>官方新闻稿用于战略、技术、品牌与 Campaign；</li>
+<li>招聘页用于组织 / 人才信号，但不冒充审计数据；</li>
+<li>第三方访谈用于管理思想与外部观察；</li>
+<li>所有派生结论显式标注；</li>
+<li>冲突口径见 <code>data/conflict-log.csv</code>。</li>
+</ul>
+<hr />
+<h1 id="安克创新执行简报executive-brief">00｜安克创新执行简报【Executive
+Brief】</h1>
+<blockquote>
+<p>更新时间：2026-10-11<br />
+用途：Claude
+第一次进入项目时先读本文件，建立当前公司全局，再按题目加载其他模块。</p>
+</blockquote>
+<h2 id="一句话判断">一句话判断</h2>
+<p>安克已经不只是“跨境电商里的充电配件公司”，而是在从<strong>多品牌全球消费电子集团</strong>进一步重构为一个以
+<strong>One Anker、底层技术平台、端侧 / 本地
+AI、家庭能源、机器人与全渠道零售</strong>为主要增长逻辑的全球智能硬件科技公司。</p>
+<p>这个判断来自当前品牌统一、财务结构、研发投入、产品技术平台和渠道变化的组合证据，而不是公司口号。</p>
+<hr />
+<h2 id="当前最重要的-12-个事实">1｜当前最重要的 12 个事实</h2>
+<ol type="1">
+<li><strong>2011 年成立，总部长沙；2020 年 A 股上市，2026 年 7 月 2 日 H
+股上市（00668）</strong>。【A03/B01】</li>
+<li><strong>2025 营收 305.14 亿元，同比增长 23.49%；归母净利润 25.45
+亿元，同比增长 20.37%。</strong>【A01】</li>
+<li><strong>2026H1 营收 166.05 亿元，同比增长 29.05%；归母净利润 17.02
+亿元，同比增长 45.86%。</strong>【A02】</li>
+<li><strong>2026H1 综合毛利率 49.82%；研发费用 18.69 亿元，占营收
+11.26%。</strong>【A02】</li>
+<li><strong>产品覆盖 180+ 国家和地区，累计服务 2 亿+
+用户。</strong>【A02/B01】</li>
+<li><strong>2026H1 员工 6239 人，其中研发人员 3523 人，占
+56.47%。</strong>【A02】</li>
+<li><strong>财务上仍按“充电储能 / 智能创新 /
+智能影音”三大分部披露。</strong>【A01/A02】</li>
+<li><strong>2026 年 9 月，消费者品牌架构进入 One Anker：Anker Charging /
+SOLIX / eufy / soundcore / eufyMake 五个类别统一到 Anker
+名下。</strong>【B02/B03】</li>
+<li><strong>2025 全年亚马逊占收入 52.29%，到 2026H1 为
+46.37%；官网、其他第三方线上与线下渠道仍在增长。</strong>【A01/A02】</li>
+<li><strong>公司在端侧 / 本地 AI 形成明确技术叙事：Thus、MindBase、2023
+Lab，以及家庭端本地智能。</strong>【B11/B02/B04】</li>
+<li><strong>传播正在从单一产品营销转向“场景 + 体验 +
+生态”：Coachella、Tomorrowland、Anker
+Day、IFA、柏林门店都是证据。</strong>【B10/B09/B08/B02】</li>
+<li><strong>增长同时伴随供应链和资金占用压力：2025 年末存货净额约 49.97
+亿元，同比增长约 54.5%【派生】，2025 经营现金流同比下降
+82.49%。</strong>【A01】</li>
+</ol>
+<hr />
+<h2 id="当前公司处于什么阶段">2｜当前公司处于什么阶段</h2>
+<h3 id="阶段-1跨境电商与移动充电起家">阶段
+1：跨境电商与移动充电起家</h3>
+<p>核心能力： - 产品定义； - 亚马逊运营； - 中国供应链； -
+海外用户与渠道。</p>
+<h3 id="阶段-2多品牌-多品类扩张">阶段 2：多品牌 / 多品类扩张</h3>
+<p>形成： - Anker； - eufy； - soundcore； - SOLIX； - eufyMake 等。</p>
+<p>公司从单一充电品类扩大到： - 家庭能源； - 智能家居； - 清洁； -
+安防； - 音频； - 投影； - 创意制造。</p>
+<h3 id="阶段-3技术深水区-组织整合">阶段 3：技术深水区 + 组织整合</h3>
+<p>2023 年之后可观察到： - 更高研发强度； - 2023 Lab； - 端侧 AI； -
+机器人； - 家庭能源； - 更长新品研发周期； - 从“改良型产品”向“用户痛点 +
+底层技术”推进。</p>
+<h3 id="阶段-4one-anker">阶段 4：One Anker</h3>
+<p>2026 年 9 月进入更明确的品牌整合：</p>
+<blockquote>
+<p>Five product categories. One unified brand.</p>
+</blockquote>
+<p>从“多个品牌各自长大”转向： - 统一品牌投资； - 统一服务 / 体验； -
+跨品类场景； - AI与连接能力共享； -
+门店中以生活场景而非纯产品类别组织体验。</p>
+<hr />
+<h2 id="对业务题最有用的-6-个战略判断">3｜对业务题最有用的 6
+个战略判断</h2>
+<h3 id="产品仍然是战略中心但产品力定义变深">①
+产品仍然是战略中心，但“产品力”定义变深</h3>
+<p>过去产品力可能更多是： 性能、价格、速度、可靠性。</p>
+<p>现在更强调： - 底层技术； - AI； - 用户洞察； - 跨设备体验； -
+长期品牌溢价。</p>
+<h3 id="one-anker-是品牌整合也是经营整合">② One Anker
+是品牌整合，也是经营整合</h3>
+<p>它不仅是改 Logo / 改品牌名。</p>
+<p>更可能意味着： - 品牌投资集中； - 用户资产统一； - 门店 / DTC / CRM
+协同； - 技术与服务共享； - 不同产品在一个生活场景里交叉销售。</p>
+<h3 id="渠道正在从平台型出海向更均衡的全渠道发展">③
+渠道正在从“平台型出海”向更均衡的全渠道发展</h3>
+<p>亚马逊仍是最大单一渠道，但占比从 2025 全年的 52.29% 降到 2026H1 的
+46.37%。</p>
+<p>同时： - 官网增长； - 其他线上平台增长； - 线下占比提升； -
+自有门店出现。</p>
+<p>不要写成“摆脱亚马逊”，更准确的表述是：</p>
+<blockquote>
+<p><strong>降低单一平台相对集中度，增强 DTC 与线下触点。</strong></p>
+</blockquote>
+<h3 id="ai-不是纯软件叙事而是端侧计算-具体硬件体验">④ AI
+不是纯软件叙事，而是“端侧计算 + 具体硬件体验”</h3>
+<p>Thus 的逻辑不是“接入大模型”，而是： 用户痛点 → 算法 → 芯片 →
+硬件执行。</p>
+<p>MindBase 又把这个逻辑延伸到家庭：</p>
+<blockquote>
+<p>本地连接 + 本地智能 + 本地记忆。</p>
+</blockquote>
+<h3 id="传播方式越来越重体验证据">⑤ 传播方式越来越重“体验证据”</h3>
+<p>Coachella、Tomorrowland、近太空测试、门店、hands-on demos
+都有共同点：</p>
+<p>不是先说“我们很创新”，而是让用户 / 媒体 /
+创作者<strong>看到、使用、验证</strong>。</p>
+<h3 id="当前增长质量要同时看库存现金流与贸易风险">⑥
+当前增长质量要同时看库存、现金流与贸易风险</h3>
+<p>2025 高增长同时伴随： - 存货明显增加； - 经营现金流承压； -
+关税与全球贸易政策暴露； - 产品质量 / 召回； -
+更重的线下和技术投入。</p>
+<p>所以业务方案不能只设计“增长”，还要设计： - 周转； - 现金； - 风险； -
+止损。</p>
+<hr />
+<h2 id="考试里最容易犯的-5-个错误">4｜考试里最容易犯的 5 个错误</h2>
+<ol type="1">
+<li>把三大财务分部和 One Anker 五大品类混成一张表。</li>
+<li>用旧官网数字替代最新定期报告。</li>
+<li>把“Thus 150×”删掉比较基准，变成夸大宣传。</li>
+<li>把“渠道多元化”写成“安克已经不依赖亚马逊”。</li>
+<li>为了迎合 One
+Anker，任何题都硬套“生态”，忽略题目本身的生意问题。</li>
+</ol>
+<hr />
+<h2 id="按题目加载什么">5｜按题目加载什么</h2>
+<ul>
+<li>财务 / 商业模型 →
+<code>02-business-model-and-financials.md</code></li>
+<li>公司战略 / AI / 机器人 / 技术 →
+<code>03-strategy-and-technology.md</code></li>
+<li>品牌 / 产品 / One Anker →
+<code>04-brand-architecture-and-products.md</code></li>
+<li>市场 / 渠道 / DTC / 零售 →
+<code>05-market-channel-supply-chain.md</code></li>
+<li>Campaign / PR / 社媒 / 体验 →
+<code>06-communications-system.md</code></li>
+<li>文化 / AI工作方式 / 组织 →
+<code>07-organization-culture-ai-native.md</code></li>
+<li>风险 / 舆情 / 合规 →
+<code>08-risk-compliance-watchlist.md</code></li>
+<li>求职 / HR / 品牌传播岗 →
+<code>09-hiring-and-role-signals.md</code></li>
+</ul>
+<hr />
+<h1 id="公司画像与发展脉络">01｜公司画像与发展脉络</h1>
+<h2 id="基础身份">1｜基础身份</h2>
+<ul>
+<li>公司：安克创新科技股份有限公司【Anker Innovations Technology Co.,
+Ltd.】</li>
+<li>成立：2011 年【B01】</li>
+<li>总部：湖南长沙【B01】</li>
+<li>A 股：深圳证券交易所创业板，300866</li>
+<li>H 股：香港联交所主板，00668；2026-07-02 上市【A03】</li>
+<li>当前覆盖：180+ 国家和地区【A02/B01】</li>
+<li>累计用户：200M+【A02/B01】</li>
+<li>全球办公室：当前官方口径为
+50+【B01；定期报告亦支持更高于旧官网30+的规模】</li>
+</ul>
+<h2 id="创始人与主要管理者">2｜创始人与主要管理者</h2>
+<h3 id="阳萌-steven-yang">阳萌 Steven Yang</h3>
+<p>公司创始人 / 董事长 / CEO。</p>
+<p>官方公司 Story 显示其教育和技术背景： - 北京大学计算机； -
+得州大学奥斯汀分校计算机硕士； - 曾任 Google 高级算法工程师。【B01】</p>
+<p>这一背景可以解释公司长期显著的： - 工程文化； - 数据与算法导向； -
+对底层技术平台的重视。</p>
+<p>但“解释”属于分析，不应把创始人背景直接等同于所有组织行为。</p>
+<h3 id="赵东平">赵东平</h3>
+<p>联合创始人 / 总裁，官方 Story 列示其曾在 Dell、Google China
+等任职。【B01】</p>
+<h3 id="业务负责人">业务负责人</h3>
+<p>官方 Story
+还列出充电储能、智能创新等核心业务负责人。考试如果不涉及组织结构，不必硬记名字；若涉及跨部门协同，可在当天刷新。</p>
+<hr />
+<h2 id="资本与治理节点">3｜资本与治理节点</h2>
+<h3 id="section">2020</h3>
+<p>A 股创业板上市（300866）。</p>
+<h3 id="section-1">2026-07-02</h3>
+<p>H 股于香港联交所主板挂牌，代码 00668，形成 A+H
+双上市平台。【A03】</p>
+<p>正式公告披露： - 全球发售 H 股 46,632,800 股（超额配售权行使前）； -
+发售价 HK$99.32； - 预计净募集约 HK$45.23
+亿（公告假设口径）。【A03】</p>
+<p>这意味着公司进入更强的国际资本市场曝光与治理环境。<br />
+“国际资本市场会直接提升品牌”属于推断，不能当作披露事实。</p>
+<hr />
+<h2 id="发展阶段从卖货到平台">4｜发展阶段：从“卖货”到“平台”</h2>
+<h3 id="早期跨境产品公司">2011–早期：跨境产品公司</h3>
+<p>安克从充电产品切入全球市场，依托亚马逊、供应链和产品效率快速建立海外用户基础。</p>
+<h3 id="中期多品牌-多品类拓荒">中期：多品牌 / 多品类拓荒</h3>
+<p>通过 Anker / eufy / soundcore 等品牌以及后来的 SOLIX、eufyMake
+等，扩展到： - 移动充电； - 家庭能源； - 智能家居； - 清洁； - 安防； -
+音频与投影； - 创意工具。</p>
+<p>这一阶段的优势是： - 品类扩张速度； -
+各品牌建立更清晰的垂类认知。</p>
+<p>代价是： - 品牌资产分散； - 跨品类叙事弱； -
+用户和渠道体验可能碎片化。</p>
+<p>后两点是基于 One Anker
+官方整合理由做出的业务分析，并非公司在财报中的直接表述。</p>
+<h3
+id="从改良式创新走向技术深水区">2023–2025：从改良式创新走向技术深水区</h3>
+<p>可观察证据： - 研发费用率从 2023 的 8.08% → 2024 的 8.53% → 2025 的
+9.48%【A01】； - 2026H1 进一步达到 11.26%【A02】； - 2023 Lab
+作为共享底层技术平台出现【B04】； -
+AI、机器人、能源、传感器、电芯、电机等能力被放到更底层的位置； - Thus
+等自研技术进入终端产品。</p>
+<h3 id="one-anker">2026：One Anker</h3>
+<p>2026 年 9 月，公司正式宣布五大类别统一在 Anker
+品牌名下。【B02/B03】</p>
+<p>这是当前理解公司的关键断点。</p>
+<p>官方给出的理由之一是：</p>
+<blockquote>
+<p>AI、机器人、本地计算和连接系统正在让原本独立的产品类别变成一个更互联的智能生态。</p>
+</blockquote>
+<p>同时公司明确： - 转换是渐进式的； - 新品先采用新体系； -
+老产品逐步迁移； - 保修与支持不受影响。【B02】</p>
+<p>因此考试中看到旧 eufy / soundcore 独立品牌露出，并不自动说明 One
+Anker “执行失败”。</p>
+<hr />
+<h2 id="当前身份的更准确表述">5｜当前身份的更准确表述</h2>
+<p>不建议再只写： &gt; “安克是全球消费电子公司。”</p>
+<p>更完整的工作定义是：</p>
+<blockquote>
+<p><strong>安克是一家以全球消费者需求为起点、以硬件产品和底层技术研发为核心、依靠全球线上与线下渠道商业化，并正在通过
+One Anker
+将充电、能源、智能家居、影音与创意工具整合为统一品牌生态的全球智能硬件科技公司。</strong></p>
+</blockquote>
+<p>这是研究分析用定义，不是公司官方固定话术。</p>
+<hr />
+<h1 id="业务模型与财务结构">02｜业务模型与财务结构</h1>
+<blockquote>
+<p>核心来源：2025 年报【A01】、2026 半年报【A02】。<br />
+本页涉及的派生比例明确标注【派生】。</p>
+</blockquote>
+<h2 id="三年增长轨迹">1｜三年增长轨迹</h2>
+<table>
+<thead>
+<tr class="header">
+<th>指标</th>
+<th style="text-align: right;">2023</th>
+<th style="text-align: right;">2024</th>
+<th style="text-align: right;">2025</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>营收</td>
+<td style="text-align: right;">175.07 亿元</td>
+<td style="text-align: right;">247.10 亿元</td>
+<td style="text-align: right;">305.14 亿元</td>
+</tr>
+<tr class="even">
+<td>归母净利润</td>
+<td style="text-align: right;">16.15 亿元</td>
+<td style="text-align: right;">21.14 亿元</td>
+<td style="text-align: right;">25.45 亿元</td>
+</tr>
+<tr class="odd">
+<td>经营活动现金流</td>
+<td style="text-align: right;">14.30 亿元</td>
+<td style="text-align: right;">27.45 亿元</td>
+<td style="text-align: right;">4.81 亿元</td>
+</tr>
+<tr class="even">
+<td>研发费用</td>
+<td style="text-align: right;">14.14 亿元</td>
+<td style="text-align: right;">21.08 亿元</td>
+<td style="text-align: right;">28.93 亿元</td>
+</tr>
+<tr class="odd">
+<td>研发费用率</td>
+<td style="text-align: right;">8.08%</td>
+<td style="text-align: right;">8.53%</td>
+<td style="text-align: right;">9.48%</td>
+</tr>
+</tbody>
+</table>
+<p>【A01】</p>
+<h3 id="派生观察">派生观察</h3>
+<ul>
+<li>2023→2025 营收两年复合增速约
+<strong>32.0%</strong>【派生｜A01】；</li>
+<li>归母净利润两年复合增速约 <strong>25.5%</strong>【派生｜A01】；</li>
+<li>2025 盈利继续增长，但经营现金流明显弱于利润。</li>
+</ul>
+<p>不能只看利润增长判断“经营质量全面改善”。</p>
+<hr />
+<h2 id="关键财务">2｜2025 关键财务</h2>
+<ul>
+<li>营收：305.144 亿元，同比 +23.49%；</li>
+<li>归母净利润：25.451 亿元，同比 +20.37%；</li>
+<li>扣非 / 调整后净利润：21.793 亿元，同比 +15.44%；</li>
+<li>综合毛利率：45.07%；</li>
+<li>经营现金流：4.808 亿元，同比 -82.49%；</li>
+<li>期末总资产：200.669 亿元；</li>
+<li>归母权益：105.276 亿元；</li>
+<li>研发费用：28.928 亿元，同比 +37.2%，占营收 9.48%。【A01】</li>
+</ul>
+<hr />
+<h2 id="h1增长继续加速">3｜2026H1：增长继续加速</h2>
+<ul>
+<li>营收：166.050 亿元，同比 +29.05%；</li>
+<li>归母净利润：17.020 亿元，同比 +45.86%；</li>
+<li>调整后净利润：14.388 亿元，同比 +49.65%；</li>
+<li>综合毛利率：49.82%；</li>
+<li>经营现金流：7.225 亿元；</li>
+<li>研发费用：18.695 亿元，同比 +56.50%，占营收 11.26%。【A02】</li>
+</ul>
+<h3 id="注意">注意</h3>
+<p>半年报披露，现金流改善中包含此前部分 IEEPA 关税退款等因素。<br />
+所以不能简单把 H1 现金流改善全部解释为经营结构永久改善。</p>
+<hr />
+<h2 id="三大财务业务分部">4｜三大财务业务分部</h2>
+<h3 id="section-2">2025</h3>
+<table>
+<thead>
+<tr class="header">
+<th>财务分部</th>
+<th style="text-align: right;">收入</th>
+<th style="text-align: right;">占比</th>
+<th style="text-align: right;">毛利率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>充电储能</td>
+<td style="text-align: right;">154.02 亿元</td>
+<td style="text-align: right;">50.47%</td>
+<td style="text-align: right;">≈41.25%【派生】</td>
+</tr>
+<tr class="even">
+<td>智能创新</td>
+<td style="text-align: right;">82.71 亿元</td>
+<td style="text-align: right;">27.11%</td>
+<td style="text-align: right;">≈48.85%【派生】</td>
+</tr>
+<tr class="odd">
+<td>智能影音</td>
+<td style="text-align: right;">68.33 亿元</td>
+<td style="text-align: right;">22.39%</td>
+<td style="text-align: right;">≈49.03%【派生】</td>
+</tr>
+</tbody>
+</table>
+<p>收入 / 成本来自【A01】；毛利率由披露收入与成本计算。</p>
+<h3 id="h1">2026H1</h3>
+<table>
+<thead>
+<tr class="header">
+<th>财务分部</th>
+<th style="text-align: right;">收入</th>
+<th style="text-align: right;">同比</th>
+<th style="text-align: right;">毛利率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>充电储能</td>
+<td style="text-align: right;">89.30 亿元</td>
+<td style="text-align: right;">+31.02%</td>
+<td style="text-align: right;">49.01%</td>
+</tr>
+<tr class="even">
+<td>智能创新</td>
+<td style="text-align: right;">41.86 亿元</td>
+<td style="text-align: right;">+28.77%</td>
+<td style="text-align: right;">47.41%</td>
+</tr>
+<tr class="odd">
+<td>智能影音</td>
+<td style="text-align: right;">34.85 亿元</td>
+<td style="text-align: right;">+24.53%</td>
+<td style="text-align: right;">54.78%</td>
+</tr>
+</tbody>
+</table>
+<p>【A02】</p>
+<h3 id="对品牌传播的意义">对品牌传播的意义</h3>
+<p>充电储能仍然是最大收入支柱，但不能把公司理解为“只靠充电”： - 智能创新
++ 智能影音合计已形成很大收入体量； - One Anker
+的品牌整合有真实的多品类业务基础； -
+不同业务毛利结构不同，传播和渠道投入逻辑也可能不同。</p>
+<hr />
+<h2 id="地区结构">5｜地区结构</h2>
+<h3 id="section-3">2025</h3>
+<ul>
+<li>北美：141.33 亿元，占 46.31%，同比 +18.95%；</li>
+<li>欧洲：81.51 亿元，占 26.71%，同比 +43.48%；</li>
+<li>中国及其他：82.31 亿元，占 26.97%，同比 +15.15%。【A01】</li>
+</ul>
+<p>欧洲是 2025 极强的增长区域。</p>
+<h3 id="h1-1">2026H1</h3>
+<ul>
+<li>北美：75.64 亿元，占 45.55%，同比 +32.70%；</li>
+<li>欧洲：44.32 亿元，占 26.69%，同比 +29.34%；</li>
+<li>中国及其他：46.09 亿元，占 27.75%，同比 +23.24%。【A02】</li>
+</ul>
+<p>不要把“海外占比高”简单等同于“欧美单一市场”：
+公司同时在拉美、东南亚等市场建立团队和渠道能力。</p>
+<hr />
+<h2
+id="渠道结构亚马逊仍重要但结构变得更均衡">6｜渠道结构：亚马逊仍重要，但结构变得更均衡</h2>
+<h3 id="section-4">2025</h3>
+<ul>
+<li>亚马逊：159.55 亿元，占总营收 52.29%，同比 +18.91%；</li>
+<li>官网 DTC：31.35 亿元，同比 +25.21%，约占 10.27%【派生】；</li>
+<li>其他第三方线上：23.37 亿元，占 7.66%，同比 +39.20%；</li>
+<li>线上总计：214.27 亿元，占 70.22%；</li>
+<li>线下：90.87 亿元，占 29.78%，同比 +27.81%。【A01】</li>
+</ul>
+<h3 id="h1-2">2026H1</h3>
+<ul>
+<li>亚马逊：76.99 亿元，占 46.37%，同比 +19.75%；</li>
+<li>官网：18.37 亿元，占 11.06%，同比 +39.19%；</li>
+<li>其他第三方线上：18.14 亿元，占 10.92%，同比 +95.78%；</li>
+<li>线上总计：113.50 亿元，占 68.35%；</li>
+<li>线下：52.55 亿元，占 31.65%。【A02】</li>
+</ul>
+<h3 id="派生判断">派生判断</h3>
+<p>亚马逊收入占比从 52.29% → 46.37%，下降约 <strong>5.92
+个百分点</strong>。</p>
+<p>可以说： &gt; 渠道相对多元化正在增强。</p>
+<p>不能直接说： &gt; 安克已经摆脱亚马逊。</p>
+<hr />
+<h2 id="研发销售与品牌投入">7｜研发、销售与品牌投入</h2>
+<p>2025： - 销售费用约 68.27 亿元，占营收约
+<strong>22.37%</strong>【派生｜A01】； - 其中销售平台费用约 24.77
+亿元，占营收约 <strong>8.12%</strong>【派生】； - 市场推广费约 24.21
+亿元，占营收约 <strong>7.94%</strong>【派生】； - 研发费用约 28.93
+亿元，占 9.48%。【A01】</p>
+<p>这说明公司并不是只靠“研发”驱动：
+它同时是一个高度依赖全球渠道、推广和品牌投资的消费科技公司。</p>
+<hr />
+<h2 id="库存与现金流增长的另一面">8｜库存与现金流：增长的另一面</h2>
+<p>2025 年末： - 存货净额约 49.97 亿元； - 占总资产 24.90%； - 2024
+年存货净额约 32.34 亿元； - 同比增加约
+<strong>54.5%</strong>【派生｜A01】。</p>
+<p>年报解释库存增加与： - 业务规模增长； -
+关税等背景下的主动备货有关。【A01】</p>
+<p>同时： - 2025 经营现金流同比 -82.49%； - 存货减值准备也明显增加。</p>
+<p>2026H1： - 资产减值损失约 4.44
+亿元，报告中主要与存货可变现净值相关。【A02】</p>
+<h3 id="对业务方案的提醒">对业务方案的提醒</h3>
+<p>任何涉及： - 新市场； - 新品； - 门店； - 大促； - 大规模
+Campaign；</p>
+<p>都不能只看曝光与销售，还应考虑： - 库存； - 周转； - 备货； -
+渠道结构； - 现金占用； - 退货与售后。</p>
+<hr />
+<h2 id="业务模型总结">9｜业务模型总结</h2>
+<p>安克的商业模型可以拆成：</p>
+<p><strong>用户洞察 → 产品 / 底层技术研发 → 中国及全球供应链 → 全球平台
+/ DTC / 零售渠道 → 内容 / 媒体 / 创作者建立信任 → 数据与反馈回流 →
+下一代产品</strong></p>
+<p>这也是为什么品牌传播岗不能只理解为“写文案”。</p>
+<hr />
+<h1 id="战略主线与技术能力">03｜战略主线与技术能力</h1>
+<h2 id="战略总览">1｜战略总览</h2>
+<p>截至
+2026-10，最值得关注的主线不是一堆并列关键词，而是四个互相连接的变化：</p>
+<ol type="1">
+<li><strong>从多品牌拓荒到 One Anker 整合</strong>；</li>
+<li><strong>从“硬件参数”进入“底层技术 + AI”</strong>；</li>
+<li><strong>从单品增长进入跨品类生活场景</strong>；</li>
+<li><strong>从平台电商优势继续扩展到 DTC 与线下体验。</strong></li>
+</ol>
+<hr />
+<h2 id="one-anker为什么现在统一">2｜One Anker：为什么现在统一</h2>
+<p>2026 IFA 官方公告明确说，AI、机器人、本地计算和 connected systems
+正在模糊原本独立产品类别之间的边界。【B02】</p>
+<p>统一后的五大类别： - Anker Charging； - Anker SOLIX； - Anker eufy；
+- Anker soundcore； - Anker eufyMake。【B02/B03】</p>
+<p>并进一步组织成： - <strong>Anker for
+You</strong>：充电、影音、健康、创意等； - <strong>Anker for
+Home</strong>：家庭安全、机器人、家庭能源等。【B02】</p>
+<h3 id="业务含义分析">业务含义【分析】</h3>
+<p>品牌统一可能带来： - 更集中品牌预算； - 更低消费者认知成本； - DTC
+和门店的跨品类体验； - CRM / 会员 / 售后的一体化机会； -
+技术平台跨产品复用。</p>
+<p>但也有挑战： - 原有垂类品牌资产如何迁移； - eufy / soundcore
+的独立心智是否被稀释； -
+五大类别是否真的能形成自然的用户生态，而非组织上的拼接。</p>
+<p>这些属于分析问题，不是公司已证明的结果。</p>
+<hr />
+<h2 id="端侧-aithus">3｜端侧 AI：Thus</h2>
+<p>Thus 是一个非常值得考试中学习的“技术→用户价值”案例。</p>
+<p>官方技术页支持： - NOR Flash 存算一体【CIM】； - AI 音频处理； -
+本地运行； - Clear Calls； - ANC； - Voice Control； -
+多模型个性化音频。【B11】</p>
+<h3 id="的正确写法">150× 的正确写法</h3>
+<p>公司脚注明确：</p>
+<blockquote>
+<p>相对于上一代旗舰耳机芯片，基于内部实验的峰值 AI 算力对比。</p>
+</blockquote>
+<p>因此必须保留限定。</p>
+<h3 id="为什么它代表安克的技术路线">为什么它代表安克的技术路线</h3>
+<p>从公开访谈和产品页可看到的推导链：</p>
+<p><strong>真实用户痛点 → 算法规模需要 → 功耗 / 体积约束 → 传统架构瓶颈
+→ 存算一体 → 产品体验</strong></p>
+<p>这比“我们用了 AI”更接近第一性。</p>
+<hr />
+<h2 id="家庭本地-aimindbase">4｜家庭本地 AI：MindBase</h2>
+<p>IFA 2026 发布 MindBase，定位为家庭本地 AI hub。【B02】</p>
+<p>核心叙事围绕： - connection； - local intelligence； - memory； -
+更强本地处理和家庭设备协同。</p>
+<p>公司 2026 年还发布了一份关于本地家庭智能的立场论文，强调 cloud-only
+架构的隐私与家庭记忆控制问题。</p>
+<h3 id="对传播的意义">对传播的意义</h3>
+<p>如果考智能家居 / 隐私： 不要只传播“AI 更聪明”。</p>
+<p>真正有差异的价值可能是： - 数据留在家里； - 更低延迟； - 跨设备协同；
+- 家庭上下文记忆； - 用户控制权。</p>
+<p>具体功能仍要按最新产品资料核验。</p>
+<hr />
+<h2 id="lab共享底层研发">5｜2023 Lab：共享底层研发</h2>
+<p>官方 Careers 把 2023 Lab 描述为跨品类的共享底层研发平台，覆盖： -
+多模态大模型算法； - 先进传感器； - 电池电芯； - 电机与运动控制； -
+热工程等。【B04】</p>
+<p>这解释了为什么 One Anker 不只是品牌层整合：</p>
+<blockquote>
+<p>当底层技术能跨品类复用，组织层和品牌层整合的经济性也会增强。【分析】</p>
+</blockquote>
+<hr />
+<h2 id="用户洞察系统jml-bees-ami">6｜用户洞察系统：JML / BEES / AMI</h2>
+<p>年报和半年报反复出现： - JML【Joint Maker Lab】； - BEES【Best
+Experience Enhancement System】； - AMI【Anker Market Insights】； - NPS
+等机制。【A01/A02】</p>
+<p>它们共同说明： 用户洞察在公司不是单次调研，而更接近制度化能力。</p>
+<p>可以理解为闭环：</p>
+<p><strong>用户声音 → 问题识别 → 产品定义 → 体验验证 → 上市 → 反馈 →
+下一轮优化</strong></p>
+<p>对品牌传播岗尤其重要：
+传播内容也应该进入这个反馈闭环，而不是只“发完看曝光”。</p>
+<hr />
+<h2 id="家庭能源">7｜家庭能源</h2>
+<p>安克 SOLIX 的能力栈并非只有便携储能。</p>
+<p>年报 / 半年报涉及： - PV inverter； - PCS； - PACK； - BMS； - EMS；
+- 阳台光伏 / 家庭储能； - AI 能源管理。【A01/A02】</p>
+<p>2026H1 欧洲继续发布 Solarbank 等产品，并推动 Plug-in Power /
+阳台储能方案。【A02】</p>
+<h3 id="战略价值分析">战略价值【分析】</h3>
+<p>能源业务具有： - 更高客单； - 更长生命周期； - 更强安装 / 售后要求；
+- 更重本地政策和渠道； - 从“消费电子”进入“家庭基础设施”的潜力。</p>
+<p>因此其传播不能照搬移动电源打法。</p>
+<hr />
+<h2 id="机器人-具身智能">8｜机器人 / 具身智能</h2>
+<p>官方公司内容显示： - 公司在安防与清洁积累了超过 1300 万家庭用户； -
+公司公开文章称在 2025 年 3
+月正式发布机器人战略，并启动人才招聘。【公司官方文章索引】</p>
+<p>这修正了早期备考资料里“2026 才正式进入机器人战略”的表述。</p>
+<h3 id="应如何使用">应如何使用</h3>
+<p>可以把机器人理解为： - eufy 安防； - 清洁机器人； - 运动控制； -
+传感器； - 视觉； - 家庭用户基础；</p>
+<p>这些能力继续延伸的结果。</p>
+<p>但具体“机器狗 /
+人形机器人”的产品时间表属于高度动态信息，考试当天应重新检索。</p>
+<hr />
+<h2 id="创新强度">9｜创新强度</h2>
+<p>2025 年末研发人员： - 3549 人； - 占员工 56.30%。【A01】</p>
+<p>2026H1： - 3523 人； - 占员工 56.47%。【A02】</p>
+<p>2025 研发费用： - 28.93 亿元； - 同比 +37.2%； - 费用率
+9.48%。【A01】</p>
+<p>2026H1： - 18.69 亿元； - 同比 +56.50%； - 费用率 11.26%。【A02】</p>
+<p>2025 年末专利： - 发明专利 308； - 实用新型 1286； - 外观设计
+1432。【A01】</p>
+<p>2026-06-30： - 发明 363； - 实用新型 1466； - 外观设计
+1793。【A02】</p>
+<p>研发投入的增长是硬事实；“研发效率一定提升”不是。</p>
+<hr />
+<h2 id="战略题的判断模板">10｜战略题的判断模板</h2>
+<p>遇到某个“新战略”时，不要因为安克说了就支持。</p>
+<p>按 6 问判断：</p>
+<ol type="1">
+<li>用户痛点是否足够强？</li>
+<li>公司是否已有相关技术 / 用户 / 渠道资产？</li>
+<li>与 One Anker 是否产生协同？</li>
+<li>商业模型是否成立？</li>
+<li>是否会增加库存、服务、合规或组织复杂度？</li>
+<li>成功后能沉淀成什么长期资产？</li>
+</ol>
+<hr />
+<h1 id="品牌架构与产品体系">04｜品牌架构与产品体系</h1>
+<h2 id="先分清两个架构">1｜先分清两个架构</h2>
+<h3 id="财务架构">财务架构</h3>
+<p>定期报告使用： - 充电储能； - 智能创新； - 智能影音。</p>
+<h3 id="消费者品牌架构">消费者品牌架构</h3>
+<p>2026-09 One Anker 使用： - Anker Charging； - Anker SOLIX； - Anker
+eufy； - Anker soundcore； - Anker eufyMake。</p>
+<p>两者用途不同，不要强行一一映射。</p>
+<hr />
+<h2 id="one-anker-的当前总叙事">2｜One Anker 的当前总叙事</h2>
+<p>IFA 2026： &gt; Five product categories. One unified
+brand.【B03】</p>
+<p>当前官方品牌总语： &gt; Anker. Where Ultimate Meets
+Possible.【B03】</p>
+<p>One Anker
+的核心不是删掉子类别，而是让消费者更容易把不同能力识别为同一家公司的统一承诺。</p>
+<hr />
+<h2 id="五大产品类别">3｜五大产品类别</h2>
+<h3 id="anker-charging">Anker Charging</h3>
+<p>核心场景： - 日常充电； - 旅行； - 桌面； - 移动设备配件。</p>
+<p>当前官方技术页继续引用 Euromonitor： Anker 为全球移动充电零售额
+No.1，2020–2025 连续六年，研究完成于 2026 年 4 月。【B11】</p>
+<h3 id="anker-solix">Anker SOLIX</h3>
+<p>核心场景： - 便携储能； - 家庭备电； - 阳台光储； -
+家庭能源管理。</p>
+<p>传播逻辑从“电池容量”逐渐转向： - 能源自主； - 家庭韧性； -
+可再生能源利用； - 智能能源管理。</p>
+<h3 id="anker-eufy">Anker eufy</h3>
+<p>涵盖： - 家庭安防； - 清洁； - 家庭 AI； - 母婴 / 家庭相关设备。</p>
+<p>关键技术资产包括： - HomeBase / 本地存储； - 传感器与视觉； -
+清洁算法与机器人； - MindBase 方向的本地家庭智能。</p>
+<h3 id="anker-soundcore">Anker soundcore</h3>
+<p>涵盖： - 耳机； - 音箱； - 投影 / 家庭影音； - AI 音频体验。</p>
+<p>关键技术资产： - Thus； - ANC； - HearID； - 空间音频 / 声学； -
+本地语音 / AI。</p>
+<h3 id="anker-eufymake">Anker eufyMake</h3>
+<p>核心： - 创意工具； - 家庭数字制造； - UV 打印等。</p>
+<p>UV Printer E1 曾在 Kickstarter 形成非常高的众筹规模；正式引用金额 /
+纪录时，应从最新官方发布页重新核验。</p>
+<hr />
+<h2 id="两大体验组">4｜两大体验组</h2>
+<h3 id="anker-for-you">Anker for You</h3>
+<p>官方 Careers / One Anker 资料把： - charging； - audio/video； -
+health； - creative tools</p>
+<p>组织成更个人化的体验组。</p>
+<h3 id="anker-for-home">Anker for Home</h3>
+<p>把： - security； - robotics； - home energy</p>
+<p>组织为家庭体验组。</p>
+<h3 id="传播价值">传播价值</h3>
+<p>这比简单“五个品类”更适合： - 门店； - 官网； - Campaign； - 展会； -
+内容栏目；</p>
+<p>因为用户首先生活在场景里，而不是财务分部里。</p>
+<hr />
+<h2 id="产品传播最重要的三层">5｜产品传播最重要的三层</h2>
+<p>任何产品不要只写参数。</p>
+<h3 id="第一层proof">第一层：Proof</h3>
+<p>有什么真实能力？ - 功率； - 速度； - 算力； - 续航； - 安全； -
+本地处理。</p>
+<h3 id="第二层payoff">第二层：Payoff</h3>
+<p>这个能力对用户意味着什么？ - 少等； - 少担心； - 更自由； - 更安静；
+- 更安全； - 更省钱。</p>
+<h3 id="第三层meaning">第三层：Meaning</h3>
+<p>为什么这件事值得记住？ - 让科技退到背景； - 把控制权交还用户； -
+让家庭能源更自主； - 让创造变得更容易。</p>
+<p>这是传播转译方法，不是公司官方固定框架。</p>
+<hr />
+<h2 id="不要犯的产品事实错误">6｜不要犯的产品事实错误</h2>
+<ol type="1">
+<li>技术“世界第一”必须保留公司脚注的定义。</li>
+<li>“150×”必须保留比较对象。</li>
+<li>用户数 / 国家数 / 市场排名用最新来源。</li>
+<li>价格、型号、上市时间是高动态信息，临场刷新。</li>
+<li>五大品牌统一后，旧网站仍可能出现旧命名，不能据此判断品牌架构回退。</li>
+</ol>
+<hr />
+<h1 id="市场渠道零售与供应链">05｜市场、渠道、零售与供应链</h1>
+<h2 id="全球市场结构">1｜全球市场结构</h2>
+<p>2025： - 北美 46.31%； - 欧洲 26.71%； - 中国及其他
+26.97%。【A01】</p>
+<p>2026H1： - 北美 45.55%； - 欧洲 26.69%； - 中国及其他
+27.75%。【A02】</p>
+<h3 id="关键判断">关键判断</h3>
+<p>北美仍是第一大市场，欧洲增长很强，同时“其他市场”体量并不小。</p>
+<p>因此“全球化”不是把美国内容翻译成多语言。</p>
+<hr />
+<h2 id="渠道结构">2｜渠道结构</h2>
+<h3 id="平台电商">平台电商</h3>
+<p>亚马逊仍然是最大单一渠道。</p>
+<p>2025： 52.29% 总营收。【A01】</p>
+<p>2026H1： 46.37%。【A02】</p>
+<h3 id="dtc">DTC</h3>
+<p>官网： - 2025 31.35 亿元，同比 +25.21%； - 2026H1 18.37 亿元，同比
++39.19%。【A01/A02】</p>
+<h3 id="其他线上平台">其他线上平台</h3>
+<p>2026H1 增速 +95.78%。【A02】</p>
+<h3 id="线下">线下</h3>
+<ul>
+<li>2025 占 29.78%；</li>
+<li>2026H1 占 31.65%。【A01/A02】</li>
+</ul>
+<p>年报提到的零售合作伙伴包括： - Walmart； - Best Buy； - Target； -
+Costco； - Argos； - OBI 等。【A01】</p>
+<hr />
+<h2 id="为什么-dtc-线下对-one-anker-特别重要分析">3｜为什么 DTC / 线下对
+One Anker 特别重要【分析】</h2>
+<p>平台电商更适合： - 单品搜索； - 比价； - 直接转化。</p>
+<p>One Anker 需要更多： - 场景教育； - 跨品类体验； - 用户关系； - 会员
+/ CRM； - 品牌记忆。</p>
+<p>因此官网和自有门店不仅是销售渠道，也是品牌基础设施。</p>
+<hr />
+<h2 id="柏林门店">4｜柏林门店</h2>
+<p>2026 IFA 官方公告： - 第一家 standalone Anker store 在柏林开业； -
+陈列围绕真实生活场景，而非单纯产品类别； - trained ambassadors
+进行跨品类 demo。【B02】</p>
+<p>这是 One Anker 从“品牌结构”走向“真实消费者体验”的关键证据。</p>
+<hr />
+<h2 id="全球履约与本地化">5｜全球履约与本地化</h2>
+<p>2026H1 披露显示公司持续建设： - 欧洲； - 北美； - 中东； - 澳大利亚；
+- 东南亚； - 拉美</p>
+<p>等区域仓储 / 履约能力。【A02】</p>
+<p>报告还提到： - 巴西本地团队； - Mercado Libre
+等区域渠道拓展。【A02】</p>
+<h3 id="对-gtm-题的含义">对 GTM 题的含义</h3>
+<p>市场进入不能只有 Campaign：</p>
+<p>还要看： - 本地库存； - 价格； - 平台； - 税费； - 售后； - 认证； -
+物流； - 本地团队。</p>
+<hr />
+<h2 id="供应链与库存">6｜供应链与库存</h2>
+<p>2025 年末存货净额 49.97 亿元，占总资产 24.90%。【A01】</p>
+<p>增长原因包括： - 业务规模； - 关税背景下主动备货。【A01】</p>
+<p>这说明全球化消费硬件增长高度依赖： - 预测； - 采购； - 生产； - 海运
+/ 空运； - 海外仓； - 平台库存； - 线下零售库存。</p>
+<p>因此任何“营销加大 50%”的建议，都应该问：</p>
+<blockquote>
+<p>供应链能不能接住？</p>
+</blockquote>
+<hr />
+<h2 id="渠道题的-7-个检查项">7｜渠道题的 7 个检查项</h2>
+<ol type="1">
+<li>流量从哪里来？</li>
+<li>用户在哪里完成决策？</li>
+<li>哪个渠道承担品牌教育？</li>
+<li>哪个渠道承担转化？</li>
+<li>库存放在哪里？</li>
+<li>售后和退货谁承担？</li>
+<li>渠道之间会不会价格冲突？</li>
+</ol>
+<p>这比只列“Amazon + TikTok + 官网 + 线下”更专业。</p>
+<hr />
+<h1 id="品牌传播与营销体系">06｜品牌传播与营销体系</h1>
+<h2 id="传播系统不是发内容">1｜传播系统不是“发内容”</h2>
+<p>从官方案例可以提炼出安克传播的几个长期能力：</p>
+<ul>
+<li>产品证据；</li>
+<li>场景植入；</li>
+<li>创作者 / 媒体第三方信任；</li>
+<li>线下体验；</li>
+<li>重大节点发布；</li>
+<li>内容二次放大；</li>
+<li>全球 / 本地市场协同。</li>
+</ul>
+<p>下面区分【事实】与【分析】。</p>
+<hr />
+<h2 id="coachella-2025事实">2｜Coachella 2025【事实】</h2>
+<p>官方资料确认： - Anker 为官方充电合作伙伴； - GA / VIP 区提供充电站；
+- solar-assisted lockers； - campground Supercharging Hub； - Charge
+&amp; Create Bar； - ZHC 创作者互动； - Volt Vault claw machine； -
+Polaroid Power Wall； - SOLIX Showcase。【B10】</p>
+<h3 id="为什么是好案例分析">为什么是好案例【分析】</h3>
+<p>它不是“给音乐节贴 logo”。</p>
+<p>而是：</p>
+<p><strong>高频刚需（没电） → 品牌真实服务 → 使用即曝光 → 互动可出片 →
+创作者内容 → SOLIX / 生态扩展</strong></p>
+<p>可以称为： &gt; Utility-led experiential
+branding【以功能服务为入口的体验式品牌传播】</p>
+<p>这是研究者总结，不是公司官方命名。</p>
+<hr />
+<h2 id="tomorrowland-2026事实">3｜Tomorrowland 2026【事实】</h2>
+<p>多年度合作： - Anker：全球独家 Official Portable Power Bank / Power
+Station Partner； - soundcore：Official Headphones Partner； - Belgium /
+Thailand / Winter； - livestream； - on-site charging； - immersive
+activations； - product integration； - 三年 co-presenting livestream；
+- Tomorrowland Thailand stage naming rights。【B09】</p>
+<h3 id="进化点分析">进化点【分析】</h3>
+<p>相比单次赞助，Tomorrowland更像长期内容与场景资产： - 多地； - 多年；
+- 线上直播； - 现场； - 多品类。</p>
+<p>与 One Anker 的方向高度兼容。</p>
+<hr />
+<h2 id="anker-day-2026事实">4｜Anker Day 2026【事实】</h2>
+<p>纽约年度多品牌活动： - media； - retail buyers； - key influencers；
+- keynote； - hands-on demos； - 新产品与技术集中展示。【B08】</p>
+<h3 id="它承担什么">它承担什么</h3>
+<p>不是大众 Campaign，而更像： - 发布会； - 媒体教育； - 渠道教育； -
+KOL seed； - 一手素材生产中心。</p>
+<hr />
+<h2 id="ifa-2026事实">5｜IFA 2026【事实】</h2>
+<p>IFA 2026 同时完成： - One Anker 品牌统一； - MindBase； - 新品发布；
+- 柏林门店； - Anker for You / Home 生态表达。【B02/B03】</p>
+<p>这是典型的： &gt; Corporate Narrative + Product Launch + Retail
+Experience</p>
+<p>三合一节点。</p>
+<hr />
+<h2 id="其他已披露案例">6｜其他已披露案例</h2>
+<p>年报 / 半年报还记录： - 《黑神话：悟空》联名； - Pokémon 日本合作； -
+Prime 充电宝约 42,000 米近太空测试； -
+纽约时代广场主题快闪等。【A01/A02】</p>
+<p>具体传播素材与结果指标，如果考试需要，应针对单案进一步联网取证。</p>
+<hr />
+<h2 id="安克传播的五类证据">7｜安克传播的五类“证据”</h2>
+<h3 id="产品证据">① 产品证据</h3>
+<p>极端场景测试、拆解、参数、认证。</p>
+<h3 id="使用证据">② 使用证据</h3>
+<p>真实场景中直接使用，例如音乐节充电。</p>
+<h3 id="第三方证据">③ 第三方证据</h3>
+<p>媒体、专业测评、创作者、认证机构。</p>
+<h3 id="社会文化证据">④ 社会文化证据</h3>
+<p>音乐、游戏、IP、生活方式场景。</p>
+<h3 id="体验证据">⑤ 体验证据</h3>
+<p>门店、快闪、发布会、hands-on demo。</p>
+<h3 id="对传播岗的价值">对传播岗的价值</h3>
+<p>技术硬件天然有“复杂 + 不易理解 + 高信任门槛”的问题。</p>
+<p>好的传播不是用更夸张的形容词， 而是给用户更容易相信的证据。</p>
+<hr />
+<h2
+id="可以抽象出的传播模型研究推断">8｜可以抽象出的传播模型【研究推断】</h2>
+<p>安克公开案例可以抽象为：</p>
+<p><strong>用户痛点 / 场景入口<br />
+→ 产品能力提供真实价值<br />
+→ 创意把使用行为变成内容<br />
+→ KOL / 媒体放大信任<br />
+→ 社交内容扩散<br />
+→ DTC / 电商 / 零售承接<br />
+→ 数据反馈与再营销</strong></p>
+<p>这是对多个案例的研究总结，不是官方SOP。</p>
+<hr />
+<h2 id="one-anker-之后传播会面临的新课题分析">9｜One Anker
+之后传播会面临的新课题【分析】</h2>
+<h3 id="过去">过去</h3>
+<p>Anker / eufy / soundcore 可以各讲自己的故事。</p>
+<h3 id="现在">现在</h3>
+<p>需要同时完成： - 单品卖点清楚； - 品类心智清楚； - Anker 总品牌统一；
+- 跨品类体验自然。</p>
+<p>风险是： &gt; 为了统一而变得泛化。</p>
+<p>所以任何 Campaign 都需要回答：</p>
+<ol type="1">
+<li>这是 Anker 什么“共同价值”的证明？</li>
+<li>为什么一定是这个品类来证明？</li>
+<li>单品利益是否仍然足够明确？</li>
+</ol>
+<hr />
+<h2 id="传播指标应该分三层">10｜传播指标应该分三层</h2>
+<h3 id="传播层">传播层</h3>
+<ul>
+<li>Reach；</li>
+<li>View / Completion；</li>
+<li>Engagement；</li>
+<li>Earned media；</li>
+<li>Share of voice；</li>
+<li>内容产量 / 复用效率。</li>
+</ul>
+<h3 id="品牌层">品牌层</h3>
+<ul>
+<li>Awareness；</li>
+<li>Consideration；</li>
+<li>Trust；</li>
+<li>Message takeout；</li>
+<li>Brand association；</li>
+<li>搜索趋势。</li>
+</ul>
+<h3 id="业务层">业务层</h3>
+<ul>
+<li>Traffic；</li>
+<li>Lead；</li>
+<li>Conversion；</li>
+<li>Sales；</li>
+<li>New member；</li>
+<li>Repeat / LTV。</li>
+</ul>
+<p>不能用“曝光量”替代所有结果。</p>
+<hr />
+<h1 id="组织文化与-ai-native-工作方式">07｜组织文化与 AI Native
+工作方式</h1>
+<h2 id="使命愿景价值观">1｜使命、愿景、价值观</h2>
+<h3 id="mission">Mission</h3>
+<p>极致创新，激发可能<br />
+Ignite possibilities through ultimate innovation.【B01】</p>
+<h3 id="vision">Vision</h3>
+<p>搭建一个互相激发的创造者乐园，成为全球消费者热爱的品牌。【B01】</p>
+<h3 id="values">Values</h3>
+<h4 id="第一性first-principle-beyond-surface">第一性【First Principle /
+Beyond Surface】</h4>
+<ul>
+<li>抛开表面事实；</li>
+<li>回归基础原理；</li>
+<li>抓住突破关键。【B01】</li>
+</ul>
+<h4 id="求极致seek-ultimate">求极致【Seek Ultimate】</h4>
+<ul>
+<li>顶着巨大风险；</li>
+<li>想尽一切办法；</li>
+<li>长期全局最优。【B01】</li>
+</ul>
+<h4 id="共成长grow-together">共成长【Grow Together】</h4>
+<ul>
+<li>长期主义；</li>
+<li>公心；</li>
+<li>持续学习；</li>
+<li>自我觉察进化。【B01】</li>
+</ul>
+<hr />
+<h2 id="第一性在业务里意味着什么">2｜“第一性”在业务里意味着什么</h2>
+<p>不要把它变成面试口号。</p>
+<p>真正体现第一性： - 区分事实和假设； - 不把行业惯例当真理； -
+从用户需求和物理 / 商业约束重新推导； - 敢于推翻原方案。</p>
+<p>Thus 的公开技术推导就是一个很好的案例： 用户音频痛点 → 模型 →
+功耗与体积约束 → 新芯片路径。</p>
+<hr />
+<h2 id="研发型组织">3｜研发型组织</h2>
+<p>2025 年末： - 员工 6304； - 技术人员 3549； - 占 56.30%。【A01】</p>
+<p>2026H1： - 员工 6239； - 研发 / 技术人员 3523； - 占
+56.47%。【A02】</p>
+<p>这支持“研发驱动”的硬事实基础。</p>
+<hr />
+<h2 id="ai-native官方招聘页披露">4｜AI Native：官方招聘页披露</h2>
+<p>官方 Culture &amp; Stage 当前披露： - 最新 AI 模型 / 工具 /
+学习资源向不同岗位开放； - AI 被嵌入关键业务流程； - 1500 名研发员工完成
+Scrum + AI 转型； - 官方称生产力提升 44%； - AI Pilot 已发放 110,000
+次评估； - 30K+ 参与者； - 近一半 2026 校招录用者成功通过； - 日 Token
+使用量达 4500 亿； - 累计 &gt;30 万亿； - 800+ PAs； - 半年近 2000
+Skills。【B05】</p>
+<h3 id="事实级别">事实级别</h3>
+<p>这些属于： 【B2｜官方雇主品牌披露】</p>
+<p>可以用于理解组织方向， 但不应该描述为“审计后的经营 KPI”。</p>
+<hr />
+<h2 id="为什么-skill-在安克特别重要">5｜为什么 Skill 在安克特别重要</h2>
+<p>官方披露“半年近 2000 Skills”，说明 Skill
+并不是考试中的花活，而与公司内部 AI 工作方式一致。【B05】</p>
+<p>这对 AI Pilot 的启示：</p>
+<p>不只是让 Claude 帮你写答案， 而是要表现出你会：</p>
+<ul>
+<li>把方法沉淀；</li>
+<li>让流程复用；</li>
+<li>给 AI 清楚的上下文；</li>
+<li>控制事实；</li>
+<li>验证结果。</li>
+</ul>
+<hr />
+<h2 id="组织沟通机制">6｜组织沟通机制</h2>
+<p>官方 Careers 介绍： - TGIF 每月第二个周五； - 已举办近 300 场； -
+用于共享公司动态和开放提问； - Annual Creation Festival； - AnkerMaker’s
+Talkshow 等。【B05】</p>
+<p>它说明公司刻意建设内部： - 信息透明； - 分享； - 创造者文化。</p>
+<hr />
+<h2 id="成长与-ownership">7｜成长与 Ownership</h2>
+<p>官方 Careers 平台支持页强调： - Earlier Ownership； - Full
+Accountability； - 27+ 产品线； - 50+ 产品商业化团队； - 1500+ full
+ownership roles； - “real growth comes from solving real problems and
+delivering real results”。【官方 Careers】</p>
+<h3 id="对答题风格的影响">对答题风格的影响</h3>
+<p>不要只写： &gt; “建议公司可以……”</p>
+<p>更像业务 owner 的表达是： &gt;
+“我建议先做A；由X负责；两周验证Y；若指标低于Z，停止并转向B。”</p>
+<hr />
+<h2 id="文化不是贴价值观">8｜文化不是“贴价值观”</h2>
+<p>高质量答案： - 第一性体现在问题拆解； - 求极致体现在质量与验证； -
+共成长体现在协同、复盘和可复用资产。</p>
+<p>低质量答案： &gt; “本方案充分体现安克第一性、求极致、共成长。”</p>
+<p>如果后面没有具体证据，这句话几乎没有价值。</p>
+<hr />
+<h1 id="风险合规与动态观察清单">08｜风险、合规与动态观察清单</h1>
+<h2 id="为什么必须有风险层">1｜为什么必须有风险层</h2>
+<p>安克是一家： - 海外收入占比极高； - 硬件制造； - 多市场销售； -
+大量个人 / 家庭设备； - 线上平台与线下并行；</p>
+<p>的公司。</p>
+<p>因此风险不是报告最后一页的装饰，而是商业模型的一部分。</p>
+<hr />
+<h2 id="库存与营运资金">2｜库存与营运资金</h2>
+<p>2025 年末： - 存货净额约 49.97 亿元； - 占资产 24.90%； - 较 2024 约
++54.5%【派生】。【A01】</p>
+<p>2025 经营现金流： - 4.81 亿元； - 同比 -82.49%。【A01】</p>
+<p>这不是说公司经营恶化， 而是说明： &gt;
+高增长与主动备货显著占用资金。</p>
+<p>任何增长方案应问： - 是否需要提前备货； - 谁承担库存； - 周转天数； -
+退货； - 季节性； - 清仓风险。</p>
+<hr />
+<h2 id="关税贸易与地缘政策">3｜关税、贸易与地缘政策</h2>
+<p>公司高度全球化，北美 / 欧洲收入占比高。</p>
+<p>官方合规声明明确重视： - 国际贸易政策； - 中国法律； - 适用外国法规；
+- 反腐败； - 反贿赂。【B13】</p>
+<p>H 股上市文件中也专门处理美国关税、出口管制与制裁问题。【A04】</p>
+<p>因此 GTM 不可只做“用户+创意”，还要关注： - tariff； - export
+control； - sanctions； - certification； - tax； - platform
+policies。</p>
+<hr />
+<h2 id="产品安全与质量">4｜产品安全与质量</h2>
+<p>Anker 官方 Product Recalls 页面列出： 2025 年 6
+月部分移动电源型号召回。【B12】</p>
+<p>不同市场页面列出的具体型号略有差异。</p>
+<h3 id="应如何理解">应如何理解</h3>
+<p>不能把一次召回扩大成： &gt; “安克质量有问题”。</p>
+<p>但可以得出： &gt; 对充电 /
+电池类公司，产品安全、供应链可追溯、召回响应与信任修复是真实的品牌风险。</p>
+<p>危机题中： - 先保护用户； - 快速识别批次； - 清楚解释处理； -
+多市场一致但符合法规； - 追踪召回完成率。</p>
+<hr />
+<h2 id="隐私与本地-ai">5｜隐私与本地 AI</h2>
+<p>随着： - eufy 安防； - 家庭 AI； - MindBase； - HomeBase； - 传感器 /
+摄像设备；</p>
+<p>扩张，隐私与数据治理将越来越重要。</p>
+<p>公司强调本地 AI / 本地存储， 这既是产品卖点，也是风险承诺。</p>
+<p>传播时不能只说： &gt; “本地 AI 更隐私。”</p>
+<p>需要具体说明： - 什么数据本地； - 什么数据上云； - 用户能否控制； -
+加密； - 保留期限； - 第三方共享； - 地区法规。</p>
+<p>具体产品必须看目标市场最新隐私政策。</p>
+<hr />
+<h2 id="one-anker-的品牌迁移风险">6｜One Anker 的品牌迁移风险</h2>
+<p>潜在问题： - 原品牌用户是否理解； - 搜索 / SEO / 渠道页面迁移； -
+售后； - 产品包装； - 经销商； - 社媒账号； - 媒体称呼； -
+不同市场节奏。</p>
+<p>官方已明确： 迁移是 gradual transition。【B02】</p>
+<p>所以策略上应该允许： &gt; “统一方向 + 分阶段迁移”</p>
+<p>而不是要求一夜切换。</p>
+<hr />
+<h2 id="高投入方向的回报风险">7｜高投入方向的回报风险</h2>
+<p>当前公司同时推进： - AI芯片； - 家庭AI； - 机器人； - 储能； -
+线下门店； - One Anker。</p>
+<p>这些方向都可能提高长期价值，但也提高： - 研发周期； - 固定成本； -
+组织复杂度； - 售后复杂度； - 库存风险。</p>
+<p>任何方案都应该设置： - 阶段目标； - 验证指标； - 停止 /
+缩减条件。</p>
+<hr />
+<h2 id="临场需要刷新监控的事项">8｜临场需要刷新监控的事项</h2>
+<p>考试前 / 考试中如果相关： - 2026Q3最新财务； - 关税变化； -
+最新召回； - 新门店； - One Anker迁移； - MindBase进度； - 机器人产品；
+- 主要 Campaign； - 目标市场法规； - 最新核心产品价格。</p>
+<hr />
+<h2 id="风险表达原则">9｜风险表达原则</h2>
+<p>不要为了显得深刻而制造风险。</p>
+<p>每个风险都要写：</p>
+<p>【发生机制】为什么会发生<br />
+【概率】高 / 中 / 低<br />
+【影响】什么指标受损<br />
+【领先信号】最早怎么知道<br />
+【缓解】提前做什么<br />
+【止损】什么情况下停止</p>
+<hr />
+<h1 id="人才hr-与品牌传播岗位信号">09｜人才、HR 与品牌传播岗位信号</h1>
+<h2
+id="先区分正式岗位要求与研究推断">1｜先区分“正式岗位要求”与“研究推断”</h2>
+<h3 id="正式-官方">正式 / 官方</h3>
+<p>来自 Anker Careers： - Brand Communications Specialist； - Marketing
+career direction； - Culture &amp; Stage； - Ownership / Growth
+页面。</p>
+<h3 id="辅助">辅助</h3>
+<p>来自： - 创始人采访； - 公开面经； - 社区。</p>
+<p>后者只能帮助理解，不应写成“安克HR官方评分标准”。</p>
+<hr />
+<h2 id="当前-brand-communications-specialist-官方职责">2｜当前 Brand
+Communications Specialist 官方职责</h2>
+<p>2026-09 官方校招页面的核心职责包括：【B06】</p>
+<ol type="1">
+<li><p>品牌内容与创意策划<br />
+参与 Campaign 创意与品牌叙事，把品牌价值转成有吸引力的内容。</p></li>
+<li><p>AI 辅助内容生产<br />
+用 AI 做文案、视觉、多语言本地化，提高内容生产效率。</p></li>
+<li><p>传播执行与管理<br />
+社媒、KOL、渠道传播，接触端到端传播管理。</p></li>
+<li><p>媒体关系<br />
+媒体关系、PR 活动、舆情监测、危机管理。</p></li>
+</ol>
+<p>这说明品牌传播岗并不是“新媒体编辑”： 它横跨
+<strong>创意、内容、渠道、PR、AI</strong>。</p>
+<hr />
+<h2 id="marketing-官方职业结构">3｜Marketing 官方职业结构</h2>
+<p>官方职业方向列出：【B07】</p>
+<h3 id="brand-growth">Brand &amp; Growth</h3>
+<p>“让世界知道好产品，并记住它。”</p>
+<h3 id="content-creative">Content &amp; Creative</h3>
+<p>“用 AI 驱动内容，用创意塑造品牌。”</p>
+<h3 id="channel-customer-management">Channel &amp; Customer
+Management</h3>
+<p>从全球电商到 DTC 和线下零售。</p>
+<h3 id="对考试的含义">对考试的含义</h3>
+<p>一道题可能同时跨： - 品牌； - 内容； - 渠道； - 商业。</p>
+<p>不能只用传播指标回答。</p>
+<hr />
+<h2 id="官方人才信号">4｜官方人才信号</h2>
+<p>Careers 强调： - question assumptions； - dig into root of a
+problem； - take ownership； - solve real-world challenges； - deliver
+real results。</p>
+<p>这与价值观里的“第一性”和“求极致”一致。</p>
+<p>所以考试中高价值行为包括： - 先拆根因； - 不 blindly follow AI； -
+做明确选择； - 自己承担判断； - 真正做出可运行结果。</p>
+<hr />
+<h2
+id="创始人公开访谈中的人才观c级辅助">5｜创始人公开访谈中的人才观【C级辅助】</h2>
+<p>2022 年 36氪访谈中，阳萌强调： - “成就导向 / 强烈想赢”； - 坚韧乐观；
+- 持续学习； - 开放坦诚； - 长期主义； - 结构化思维； -
+决断力等。【C01】</p>
+<p>正确写法： &gt; “创始人公开访谈曾强调……”</p>
+<p>不正确写法： &gt; “安克 HR 官方三项评分标准就是……”</p>
+<hr />
+<h2 id="ai-能力为什么是核心">6｜AI 能力为什么是核心</h2>
+<p>官方组织页展示公司在： - AI Pilot； - Skills； - PAs； - Scrum + AI；
+- 大规模 token 使用；</p>
+<p>上的内部投入。【B05】</p>
+<p>所以 AI Pilot 很可能不只是检查： &gt; 你会不会 Prompt。</p>
+<p>而更接近检查： - 会不会拆任务； - 会不会让 AI 读真实材料； -
+会不会验证； - 会不会沉淀方法； - 会不会把 AI 产出变成业务交付。</p>
+<p>后半段是研究判断，不是官方评分表。</p>
+<hr />
+<h2
+id="品牌传播候选人答题应呈现的-8-项能力">7｜品牌传播候选人答题应呈现的 8
+项能力</h2>
+<ol type="1">
+<li><strong>问题识别</strong>：先判断真正是产品、渠道还是传播问题。</li>
+<li><strong>用户洞察</strong>：不是年龄画像，而是需求、阻力、场景。</li>
+<li><strong>品牌判断</strong>：知道短期转化与长期品牌资产的区别。</li>
+<li><strong>内容转译</strong>：把技术 /
+产品能力讲成人能理解的价值。</li>
+<li><strong>传播设计</strong>：不同渠道承担不同任务。</li>
+<li><strong>数据意识</strong>：有漏斗、有预算、有验证。</li>
+<li><strong>协同执行</strong>：知道产品、设计、电商、PR、区域团队怎么配合。</li>
+<li><strong>AI
+原生工作方式</strong>：会检索、分析、生成、验证、沉淀。</li>
+</ol>
+<hr />
+<h2 id="不要过度迎合公司">8｜不要过度“迎合公司”</h2>
+<p>很容易犯的错误： - 每段都写第一性； - 每个方案都硬套 One Anker； -
+每个创意都硬说“极致创新”； - 频繁复述价值观。</p>
+<p>真正像内部业务人员的表现是： &gt;
+价值观体现在判断方式，不是出现频率。</p>
+<hr />
+<h1
+id="研究方法来源等级与事实纪律">10｜研究方法、来源等级与事实纪律</h1>
+<blockquote>
+<p>更新时间：2026-10-11<br />
+这一部分是整个 Anker Company Intelligence Pack 的“可信度协议”。Claude
+在引用公司事实前，先遵守这里的规则。</p>
+</blockquote>
+<h2 id="研究目标">1. 研究目标</h2>
+<p>公司研究不是为了“背公司介绍”，而是为了支持真实业务判断。对每一条重要信息至少回答四个问题：</p>
+<ol type="1">
+<li><strong>它是什么事实？</strong></li>
+<li><strong>这个事实对应哪个时间点 / 统计口径？</strong></li>
+<li><strong>来源有多可靠？</strong></li>
+<li><strong>它对当前题目的判断有什么影响？</strong></li>
+</ol>
+<p>只有第 4 个问题成立的信息，才值得在考试答案里出现。</p>
+<hr />
+<h2 id="七维企业深研框架company-deep-dive">2. 七维企业深研框架【Company
+Deep-Dive】</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>要回答的问题</th>
+<th>首选资料</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>公司画像</td>
+<td>谁、何时成立、在哪里、谁管理、资本结构怎样、正处于哪个阶段</td>
+<td>年报、招股书、交易所公告、官网</td>
+</tr>
+<tr class="even">
+<td>业务与财务</td>
+<td>靠什么赚钱，增长来自哪里，利润/现金流/库存怎样</td>
+<td>年报、半年报、IR</td>
+</tr>
+<tr class="odd">
+<td>战略主线</td>
+<td>资源正在押注什么，为什么，组织与品牌如何跟着改变</td>
+<td>官方发布、IR、管理层访谈</td>
+</tr>
+<tr class="even">
+<td>品牌与产品</td>
+<td>现在如何组织产品和品牌，核心技术/产品资产是什么</td>
+<td>One Anker官网、产品页、发布会</td>
+</tr>
+<tr class="odd">
+<td>市场与渠道</td>
+<td>哪些地区、平台、DTC、线下零售最重要，结构如何变化</td>
+<td>定期报告、招股书</td>
+</tr>
+<tr class="even">
+<td>传播体系</td>
+<td>公司如何建立认知、信任、体验和转化</td>
+<td>官方战役复盘、发布会、媒体活动</td>
+</tr>
+<tr class="odd">
+<td>组织与人才</td>
+<td>文化、AI工作方式、岗位职责、人才信号是什么</td>
+<td>Careers、价值观页、JD、访谈</td>
+</tr>
+</tbody>
+</table>
+<p>这套框架既用于安克，也可以在考试中迁移到竞品、合作方或目标市场公司。</p>
+<hr />
+<h2 id="来源等级">3. 来源等级</h2>
+<h3 id="a1法定-审计-交易所披露">A1｜法定 / 审计 / 交易所披露</h3>
+<p>最高优先级。</p>
+<p>包括： - 年度报告； - 招股书； - 交易所正式公告； -
+经审计财务数据。</p>
+<p>适用： - 财务数字； - 股本 / 上市； - 员工数； - 重大风险； -
+业务分部； - 资产负债和现金流。</p>
+<h3 id="a2正式中期披露-投资者关系材料">A2｜正式中期披露 /
+投资者关系材料</h3>
+<p>高优先级。</p>
+<p>包括： - 半年度报告； - 季度报告； - 正式投资者关系记录。</p>
+<p>适用： - 最新经营变化； - 产品与渠道进展； -
+最新研发、人员与市场结构。</p>
+<h3 id="b1公司正式新闻稿-产品页">B1｜公司正式新闻稿 / 产品页</h3>
+<p>可信，但要保留公司自身表述中的限定条件。</p>
+<p>适用： - One Anker； - 新产品； - 技术发布； - 战略合作； -
+Campaign； - 市场地位类声明。</p>
+<p>例如： “Thus 150×算力”必须一起保留： &gt;
+相对于上一代旗舰耳机芯片、公司内部实验条件下的峰值 AI 算力比较。</p>
+<p>不能改写成： &gt; “Thus 比所有芯片快 150 倍。”</p>
+<h3 id="b2公司招聘-雇主品牌-esg-文化页">B2｜公司招聘 / 雇主品牌 / ESG /
+文化页</h3>
+<p>可用于组织、文化与人才判断，但不是审计数据。</p>
+<p>例如： - AI Pilot参与人数； - Scrum + AI生产力提升； - Skills数量； -
+TGIF机制。</p>
+<p>引用时可写： &gt; “安克官方招聘页披露……”</p>
+<p>而不要写成： &gt; “经审计证明……”</p>
+<h3 id="c高质量第三方">C｜高质量第三方</h3>
+<p>用于： - 创始人思想； - 外部观察； - 媒体访谈； - 行业评价。</p>
+<p>不能用 C 级来源推翻 A 级法定披露。</p>
+<h3 id="d社区-面经-社交媒体讨论">D｜社区 / 面经 / 社交媒体讨论</h3>
+<p>只用于： - 用户或候选人体验； - 情绪 / 反应； - 假设生成。</p>
+<p>不能作为公司硬事实来源。</p>
+<hr />
+<h2 id="六种事实状态">4. 六种事实状态</h2>
+<p>在 <code>data/company-fact-ledger.csv</code> 中使用：</p>
+<ul>
+<li><code>verified-primary</code>：法定或正式披露直接支持；</li>
+<li><code>verified-official</code>：公司官网 / 官方渠道直接支持；</li>
+<li><code>derived-from-primary</code>：由法定披露数字计算所得；</li>
+<li><code>conflict-observed</code>：不同官方页面存在口径冲突；</li>
+<li><code>inference</code>：基于事实做出的分析判断；</li>
+<li><code>needs-refresh</code>：很可能随时间变化，正式使用前重新查证。</li>
+</ul>
+<hr />
+<h2 id="四层事实纪律">5. 四层事实纪律</h2>
+<p>考试中必须区分：</p>
+<h3 id="题目事实">【题目事实】</h3>
+<p>题目与附件直接给出。</p>
+<p>优先级最高。若题目给出与本知识库不同的数据，<strong>以题目为准</strong>。</p>
+<h3 id="安克资料">【安克资料】</h3>
+<p>本项目已核验的公司知识库。</p>
+<p>使用时最好知道来源 ID。</p>
+<h3 id="外部事实">【外部事实】</h3>
+<p>考试当天新联网获得。</p>
+<p>需要保留来源和时间。</p>
+<h3 id="工作假设">【工作假设】</h3>
+<p>为了推进分析暂时建立。</p>
+<p>必须显式标记，不得伪装成事实。</p>
+<hr />
+<h2 id="数据口径不能混用">6. 数据口径不能混用</h2>
+<h3 id="财务口径-品牌口径">财务口径 ≠ 品牌口径</h3>
+<p>2025 年报 / 2026 半年报的财务业务分部是：</p>
+<ol type="1">
+<li>充电储能；</li>
+<li>智能创新；</li>
+<li>智能影音。</li>
+</ol>
+<p>2026 年 9 月 One Anker 的消费者品牌 / 产品架构是：</p>
+<ol type="1">
+<li>Anker Charging；</li>
+<li>Anker SOLIX；</li>
+<li>Anker eufy；</li>
+<li>Anker soundcore；</li>
+<li>Anker eufyMake。</li>
+</ol>
+<p><strong>三大财务分部与五大品牌品类不是一一对应的同一种统计维度。</strong></p>
+<p>做财务分析用三大业务分部；
+做品牌、产品、体验与传播分析用五大品类。</p>
+<hr />
+<h2 id="官方页面冲突怎么办">7. 官方页面冲突怎么办</h2>
+<p>项目内建立 <code>data/conflict-log.csv</code>。</p>
+<p>典型案例：</p>
+<ul>
+<li>旧中文官网仍出现 146+ 国家、5000+
+员工、47.75%研发人员、30+办公室；</li>
+<li>当前全球 Story / 2026H1 披露已经是 180+ 国家、约 6200+
+员工、研发占比约 56%、50+办公室。</li>
+</ul>
+<p>规则：</p>
+<blockquote>
+<p><strong>定期报告的具体期末数 &gt; 当前官方品牌页的四舍五入口径 &gt;
+旧营销页。</strong></p>
+</blockquote>
+<p>不删除旧信息，而是记录“为什么旧”。</p>
+<hr />
+<h2 id="派生指标规则">8. 派生指标规则</h2>
+<p>自己计算出来的指标必须写成“派生计算”，不能假装是公司原文。</p>
+<p>例如：</p>
+<ul>
+<li>2023–2025 营收 CAGR ≈ 32.0%；</li>
+<li>2025 三大业务分部毛利率，可由报告披露的收入和成本计算；</li>
+<li>2025 年末存货净额同比增幅约 54.5%；</li>
+<li>2025 经营现金流 / 归母净利润约 18.9%。</li>
+</ul>
+<p>这些非常适合用于分析，但必须标记：</p>
+<blockquote>
+<p>【派生计算｜基于A01】</p>
+</blockquote>
+<hr />
+<h2 id="当前信息的刷新周期">9. “当前”信息的刷新周期</h2>
+<p>以下信息临场使用前建议联网刷新：</p>
+<ul>
+<li>最新产品 / 型号 / 参数；</li>
+<li>价格；</li>
+<li>最新市场排名；</li>
+<li>门店数；</li>
+<li>社媒粉丝数；</li>
+<li>Campaign；</li>
+<li>KOL；</li>
+<li>管理层；</li>
+<li>招聘岗位；</li>
+<li>合规 / 召回；</li>
+<li>2026Q3及之后财务。</li>
+</ul>
+<p>相对稳定的信息：</p>
+<ul>
+<li>公司成立时间；</li>
+<li>核心价值观；</li>
+<li>基础商业模式；</li>
+<li>历史财务；</li>
+<li>已发生的重大品牌统一；</li>
+<li>已披露的上市信息。</li>
+</ul>
+<hr />
+<h2 id="claude-引用格式建议">10. Claude 引用格式建议</h2>
+<p>内部分析时可写：</p>
+<blockquote>
+<p>2026H1 安克亚马逊收入占比
+46.37%【A02｜verified-primary】，较2025全年52.29%下降5.92pct【派生计算】。这说明渠道结构正在降低对单一平台的相对依赖，但不能仅凭半年数据断言“去亚马逊化完成”。</p>
+</blockquote>
+<p>这个格式比只说“亚马逊占比下降”更可靠。</p>
+<hr />
+<h2 id="核心源目录">11. 核心源目录</h2>
+<p>完整结构化来源见：</p>
+<p><code>data/source-register.csv</code></p>
+<p>最重要四个入口：</p>
+<ul>
+<li>A01：2025 年年度报告全文</li>
+<li>A02：2026 年半年度报告全文</li>
+<li>B02：2026 IFA / One Anker 统一公告</li>
+<li>B01：当前公司 Story</li>
+</ul>
+<p>任何核心数字如果无法在这些或同等级来源中找到，不要硬写。</p>
+<hr />
+</body>
+</html>

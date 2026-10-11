@@ -1,0 +1,888 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Anker Pilot V6 · Prompt Control Room</title><style>
+:root{--ink:#111318;--sub:#5e6675;--line:#dfe3e9;--bg:#f5f6f8;--card:#fff;--blue:#1267e5;--navy:#071c36;--soft:#eaf2ff;--green:#087e53;--orange:#b75500;--shadow:0 12px 40px rgba(10,24,50,.07)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:#fff;line-height:1.72}a{color:inherit}.wrap{max-width:1220px;margin:auto;padding:0 28px}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.91);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:62px;display:flex;align-items:center;gap:26px}.brand{font-weight:850;color:var(--navy);white-space:nowrap}.brand i{font-style:normal;color:var(--blue)}.navlinks{display:flex;gap:14px;overflow:auto;scrollbar-width:none}.navlinks a{text-decoration:none;font-size:13px;color:var(--sub);white-space:nowrap;padding:7px 9px;border-radius:8px}.navlinks a:hover{background:var(--bg);color:var(--blue)}
+.hero{background:radial-gradient(circle at 75% 25%,#d9e9ff 0,transparent 34%),linear-gradient(150deg,#f8fbff,#fff 55%);border-bottom:1px solid var(--line);padding:76px 0 58px}.eyebrow{display:inline-flex;padding:6px 11px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:12px;font-weight:800;letter-spacing:.5px}.hero h1{font-size:48px;line-height:1.12;max-width:900px;margin:18px 0 15px;letter-spacing:-1.6px}.hero p{font-size:17px;color:var(--sub);max-width:830px;margin:0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:34px}.stat{padding:18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.82)}.stat b{font-size:23px;display:block}.stat span{font-size:12.5px;color:var(--sub)}
+.toolbar{position:sticky;top:62px;z-index:90;background:#fff;border-bottom:1px solid var(--line);padding:12px 0}.toolrow{display:flex;gap:10px;align-items:center}.search{flex:1;min-width:220px;border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-size:14px}.pill{border:1px solid var(--line);border-radius:999px;padding:8px 12px;background:#fff;font-size:12px;cursor:pointer}.pill:hover{border-color:#aab6c8}
+.route{padding:42px 0}.route h2,.section h2{font-size:27px;letter-spacing:-.5px}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.step{padding:16px;border-radius:13px;background:var(--bg);border:1px solid var(--line)}.step b{display:block;color:var(--blue);font-size:12px;margin-bottom:4px}.step span{font-size:13px;color:var(--sub)}
+.section,.scenario{padding:50px 0;border-top:1px solid var(--line)}.sec-title{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}.num{min-width:42px;height:42px;padding:0 8px;border-radius:12px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:850;flex:none}.sec-title h2{margin:2px 0 3px}.sec-title p{margin:0;color:var(--sub);font-size:14px}
+.prompt-stack{display:grid;gap:15px}.prompt-card{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--card);box-shadow:0 2px 10px rgba(15,30,60,.025)}.pc-head{padding:13px 16px;background:#f8f9fb;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.pc-head h4{margin:0;font-size:15px}.pc-head span{font-size:11px;color:var(--sub)}button.copy{border:0;background:var(--navy);color:#fff;padding:7px 13px;border-radius:8px;font-weight:750;cursor:pointer}.copy.done{background:var(--green)}pre{white-space:pre-wrap;word-break:break-word;margin:0;padding:18px;font-family:"SFMono-Regular",Consolas,monospace;font-size:13.3px;line-height:1.75;color:#21252d;max-height:620px;overflow:auto}
+details{margin:12px 0 20px;border:1px solid var(--line);border-radius:14px;background:#fafbfc}summary{cursor:pointer;font-weight:750;padding:14px 17px}.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0 14px 14px}.case-card{text-decoration:none;border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px;min-height:118px;transition:.15s}.case-card:hover{transform:translateY(-1px);box-shadow:var(--shadow);border-color:#bfd2ed}.case-card b{font-size:13.5px}.case-card p{font-size:12.5px;color:var(--sub);margin:7px 0}.case-card span{font-size:11px;color:var(--blue)}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px}.meta-box{padding:13px 15px;border:1px solid var(--line);border-radius:12px;background:#fbfcfe}.meta-box b{font-size:12px;color:var(--blue);display:block;margin-bottom:4px}.meta-box p{font-size:13px;color:var(--sub);margin:0}.quicknav{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:20px 0 4px}.quicknav a{text-decoration:none;padding:12px 13px;border:1px solid var(--line);border-radius:12px;background:#fff}.quicknav b{display:block;font-size:13px;color:var(--navy)}.quicknav span{font-size:11.5px;color:var(--sub)}.methods{display:grid;grid-template-columns:1fr 1fr;gap:12px}.method{padding:18px;border:1px solid var(--line);border-radius:14px}.method b{display:block;margin-bottom:6px}.method p{font-size:13px;color:var(--sub)}.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.links a{text-decoration:none;border:1px solid var(--line);padding:8px 10px;border-radius:9px;font-size:12px;color:var(--blue)}
+.hidden{display:none!important}.notice{padding:15px 17px;background:#fff8e9;border:1px solid #efdca7;color:#624300;border-radius:12px;font-size:13px;margin-top:18px}.meta-line{font-size:12px;color:var(--sub);margin:6px 0 18px}.source-note{font-size:12px;color:var(--sub);padding:0 17px 14px}footer{padding:45px 0 70px;border-top:1px solid var(--line);color:var(--sub);font-size:13px}
+@media(max-width:900px){.hero h1{font-size:36px}.quicknav{grid-template-columns:repeat(2,1fr)}.meta-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.flow{grid-template-columns:repeat(3,1fr)}.case-grid{grid-template-columns:1fr 1fr}.methods{grid-template-columns:1fr}.navlinks{display:none}}
+@media(max-width:560px){.wrap{padding:0 16px}.hero{padding:50px 0 38px}.hero h1{font-size:31px}.flow{grid-template-columns:1fr 1fr}.case-grid{grid-template-columns:1fr}.toolrow{flex-wrap:wrap}}
+</style></head><body><header><div class="wrap nav"><div class="brand">Anker <i>Pilot V6</i></div><nav class="navlinks"><a href="#start">0 启动</a><a href="#general">1 通用</a><a href="#comms">2 传播</a><a href="#3a">3A–H 专项</a><a href="#delivery">4 交付</a><a href="#final">5 验证</a><a href="#methods">Skill 方法</a><a href="company-intelligence.html">公司情报 ↗</a></nav></div></header><section class="hero"><div class="wrap"><span class="eyebrow">ANKER AI PILOT · DEEP SCENARIO SYSTEM</span><h1>案例先研究，方案再生长。<br>每个专项都有推导、边界和验收。</h1><p>V6 把 3A–3H 做成完整专业包：成熟案例负责提供可迁移机制，Prompt 负责完成专业推导，成功标准负责把控质量；同时内化并行研究、渐进式上下文、反模板设计、自然语言编辑与真实验证，让 3 小时更多用于真正影响成绩的判断。</p><div class="stats"><div class="stat"><b>8</b><span>深度专项包</span></div><div class="stat"><b>8</b><span>外链案例研究包</span></div><div class="stat"><b>4+3</b><span>通用 + 传播核心 Prompt</span></div><div class="stat"><b>6</b><span>代表性 Skill 自测题</span></div></div><div class="notice">路线：真题先走 0→1；涉及传播再加 2；选择 1 个主专项，必要时叠加 1 个辅助专项。案例只迁移机制，不照搬品牌形式。题目要求什么交付物，再调用对应交付模块。</div></div></section><div class="toolbar"><div class="wrap toolrow"><input id="q" class="search" placeholder="搜索：GTM / 空间 / KOL / Demo / KPI / 危机 / 本地化…"><button class="pill" onclick="jump('3a')">专项</button><button class="pill" onclick="jump('delivery')">交付</button><button class="pill" onclick="jump('final')">终检</button></div></div><main class="wrap"><section class="route"><h2>考试路线</h2><div class="flow"><div class="step"><b>0</b>公司情报<span>只加载真题相关资料</span></div><div class="step"><b>0A</b>高性能<span>并行、阶段快照、验证</span></div><div class="step"><b>1</b>通用主干<span>审题→证据→策略→交付</span></div><div class="step"><b>2</b>传播加固<span>人群→主张→传播系统</span></div><div class="step"><b>3</b>专项深研<span>案例→专业机制→验收</span></div><div class="step"><b>4–5</b>成品验证<span>视觉/文字/文件实测</span></div></div><div class="quicknav"><a href="#3a"><b>3A · 线下体验</b><span>空间 / 门店 / Demo / 运营</span></a><a href="#3b"><b>3B · 海外 GTM</b><span>上市 / 市场进入 / 本地化</span></a><a href="#3c"><b>3C · AI 内容</b><span>内容工厂 / 多平台 / QC</span></a><a href="#3d"><b>3D · 整合营销</b><span>Campaign / Big Idea / 参与</span></a><a href="#3e"><b>3E · PR 媒体</b><span>发布会 / 新闻 / Media Kit</span></a><a href="#3f"><b>3F · 社媒增长</b><span>内容矩阵 / Creator / UGC</span></a><a href="#3g"><b>3G · 危机信任</b><span>事实 / 响应 / 恢复</span></a><a href="#3h"><b>3H · 科技传播</b><span>技术转译 / Proof / Demo</span></a></div></section><section id="start" class="section searchable"><div class="sec-title"><div class="num">0</div><div><h2>启动底座</h2><p>安克业务专家 + Claude 高性能作战模式</p></div></div><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>0｜安克业务专家模式</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>你现在进入「安克业务专家模式」。
+
+你的目标是把真实的公司事实转化为业务判断，并在需要时快速定位可验证的数据与来源。
+
+【先建立公司上下文】
+第一步只读取：
+- knowledge/company-intelligence/00-executive-brief.md
+- knowledge/company-intelligence/10-source-methodology.md
+
+然后阅读真题，再决定是否加载：
+- 财务/商业模型：02-business-model-and-financials.md
+- 战略/AI/技术：03-strategy-and-technology.md
+- 品牌/产品：04-brand-architecture-and-products.md
+- 市场/渠道/零售：05-market-channel-supply-chain.md
+- 传播/营销：06-communications-system.md
+- 文化/组织/AI Native：07-organization-culture-ai-native.md
+- 风险/合规：08-risk-compliance-watchlist.md
+- 招聘/岗位：09-hiring-and-role-signals.md
+
+公司资料按真题相关度分批加载，优先保持主上下文聚焦。
+
+【需要精确数据时】
+优先读取：
+- data/company-fact-ledger.csv
+- data/financials.csv
+- data/business-segments.csv
+- data/regions-channels.csv
+- data/technology-assets.csv
+- data/campaigns.csv
+
+每条重要事实都尽量保留 source_id。
+若发现数字/口径不一致，先查：
+- data/conflict-log.csv
+- data/source-register.csv
+
+【事实等级】
+你会同时遇到四类信息：
+①【题目事实】考试材料直接给出；
+②【安克资料】本项目已核验知识库；
+③【外部事实】考试当天新检索；
+④【工作假设】尚未验证的判断。
+
+题目事实优先于本知识库。
+所有工作假设都明确标注，并在后续补证据或修正。
+
+【引用纪律】
+- 财务、上市、员工数等优先 A1/A2 法定披露；
+- 官方新闻和产品页可用于战略/技术/Campaign，但保留脚注和限定条件；
+- 招聘/文化页可以说明组织方向，但不要写成审计事实；
+- 第三方访谈用于管理思想或外部观察；
+- 自己计算的比例必须标记【派生计算】。
+
+例如：
+“2026H1 亚马逊收入占比46.37%【A02】；较2025全年52.29%下降5.92pct【派生计算】。这支持“渠道相对多元化正在增强”的判断；若要进一步判断亚马逊依赖程度，还需要结合渠道利润、流量来源和更长时间序列。”
+
+【理解安克时始终记住】
+理解安克时同时考虑它从跨境产品公司向全球消费科技、AI 与 One Anker 生态整合的发展过程。
+
+它经历了：
+跨境产品公司
+→ 多品牌全球消费电子集团
+→ 底层技术与AI投入加深
+→ One Anker品牌和体验整合。
+
+分析任何问题时至少判断：
+- 用户真正的问题；
+- 当前生意的价值；
+- 是否与公司已有产品/技术/渠道资产协同；
+- 是否形成长期品牌或用户资产；
+- 组织与供应链能否执行；
+- 库存、现金、合规、售后等代价；
+- 哪些结论只是我们自己的推断。
+
+【工作方式】
+可以给多个方向，但最后必须推荐一个。
+如果新证据推翻旧判断，直接修正。
+只有当 One Anker、AI 或价值观确实改变本题判断时再引用，让公司背景服务于问题本身。
+
+【现在开始】
+如果已经给了真题：
+1）先读执行简报与来源规则；
+2）判断本题需要加载哪 1–3 个公司模块；
+3）读取后只返回：
+   - 与本题真正相关的 5–8 条公司事实；
+   - 每条事实的 source_id / 状态；
+   - 这些事实对本题意味着什么；
+   - 仍需要临场核验的信息；
+4）然后进入「通用业务解题主干」。
+
+如果还没有真题：
+只确认已经进入安克业务专家模式，并等待题目，不提前猜题。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>0A｜Claude 高性能作战模式</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>接下来进入【高性能作战模式】。不需要节省 token；优先追求正确、深入、快速并行和最终完成度。
+
+【1｜先判断任务结构】
+先把任务拆成：
+- 必须串行完成的关键判断；
+- 可以并行调查的独立问题；
+- 最后统一整合的部分。
+优先把互不依赖的任务并行；存在依赖关系的判断保持串行，并给不同窗口清晰边界以减少重复。
+
+【2｜并行研究时给每个任务清晰边界】
+每个独立研究任务都要写清：
+- 它要回答的具体问题；
+- 已知上下文；
+- 必须优先看的来源；
+- 不需要研究什么；
+- 最终只返回哪些结果。
+
+建议研究任务统一返回：
+① 关键发现；② 证据/来源；③ 置信程度；④ 对本题意味着什么；⑤ 仍然缺什么。
+这样主窗口只接收高密度结果，不接收冗长过程。
+
+【3｜先形成判断，再定向检索】
+先建立少量关键假设和证据缺口，再去联网检索。
+检索围绕关键假设与证据缺口展开，优先保证每次搜索都能影响判断。
+如果多个来源冲突，记录口径、时间与来源等级，再决定采用哪一个。
+
+【4｜阶段性压缩上下文】
+每完成一个重要阶段，把结果压成一页【阶段快照】：
+- 已确认事实；
+- 当前判断；
+- 已放弃方向及原因；
+- 仍未验证的假设；
+- 下一步。
+后续优先引用阶段快照，避免反复重新阅读全部对话。
+
+【5｜创意与方案先发散、再收敛】
+需要创意时，先给 3–5 个真正不同的方向；每个方向说明洞察、机制、品牌资格和可执行性。
+随后使用同一套标准比较并明确推荐，不把选择留给我。
+
+【6｜视觉交付】
+需要 HTML / Demo / 页面时，先确定：
+- 谁看；
+- 页面最重要的任务；
+- 希望留下什么感受；
+- 信息层级；
+- 一套明确的视觉方向。
+让视觉来自题目、品牌和内容本身。优先发展独特的信息层级与审美方向，减少“科技蓝渐变 + 四张 KPI 卡 + 通用 Dashboard”等默认模板。
+每个图表、动效、卡片都必须有信息作用。
+
+【7｜文字质量】
+最终文案进行一次自然语言编辑：
+- 保留所有事实、限定条件和作者判断；
+- 删除重复、空话、套话和为了完整而写的铺垫；
+- 句子长短有变化；
+- 专业术语只在确实提高精度时使用；
+- 自然化处理保留必要逻辑、事实与限定条件；
+- 减少对抗式反驳句，优先直接说建议、可能性、取舍与注意事项。
+
+【8｜完成前必须验证】
+任何“已经完成/可以提交”的判断前，都先找到能证明它的检查动作并实际执行：
+- 重新核对题目要求；
+- 重新核对关键事实；
+- 实际打开 HTML / 文件；
+- 点击主要交互；
+- 搜索占位符、未替换字段和错误；
+- 检查关键数字和结论。
+
+完成后基于检查结果报告实际状态，重点说明已通过项和仍需处理项。</pre></article></div></section><section id="general" class="section searchable"><div class="sec-title"><div class="num">1</div><div><h2>任意题型通用主干</h2><p>先把业务问题做对，再决定需要什么专业能力</p></div></div><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>1｜启动 + 审题 + 任务拆解</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>你现在是我的高级业务问题解决搭档。
+
+不要预设这是一道品牌、营销、产品、运营或技术题。先根据题目本身判断，它真正属于什么问题、需要哪些专业能力。
+
+请完整阅读我提供的题目、附件、数据、用户反馈和其他材料。先不要给最终方案。
+
+请依次完成：
+1）用你自己的话说明：题目真正要求解决什么；最终必须交付什么；成功标准是什么；有哪些明确约束。
+2）区分四类信息：
+- 【已知事实】题目明确提供；
+- 【已有资料】知识库或数据库可以支持；
+- 【缺失信息】目前没有但可能影响判断；
+- 【工作假设】为了继续分析暂时建立、仍需验证。
+3）找出决定结果的 3–5 个核心问题。不要为了完整罗列十几个问题，要判断真正重要的是什么。
+4）按“先解决什么、后解决什么”设计接下来的工作路径。互不依赖的任务可以建议并行。
+5）最后输出一份简洁的【任务单】：核心目标、核心问题、硬性要求、关键约束、待验证问题、下一步。
+
+如果你发现我对题目的理解有问题，请直接指出。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>2｜证据补充 + 深入诊断</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>现在不要急着想方案。围绕上一阶段确定的核心问题，先判断“我们到底缺什么证据”。
+
+请先提出最值得验证的 3–5 个关键假设。针对每个假设说明：
+- 为什么值得验证；
+- 已有什么证据；
+- 还缺什么信息；
+- 如果这个假设错误，会怎样改变我们的方案。
+
+需要外部资料时再联网搜索，不要为了显得研究充分而宽泛搜索。搜索优先级：
+①官方/一手资料；②权威行业资料；③高质量媒体/研究机构；④用户评价、社区和案例作为补充。
+
+重要事实注明来源与时间，并严格区分：【已证实】【较强推断】【工作假设】【仍未知】。
+
+分析完成后，不要只总结信息，请回答“所以真正的问题是什么？”
+输出：
+1）最重要的 3–5 个发现；
+2）每个发现背后的证据；
+3）每个发现意味着什么【So What】；
+4）最值得解决的根因；
+5）哪些原来的判断应该被推翻。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>3｜形成策略 + 做出选择</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>基于已经确认的事实和诊断，现在进入方案阶段。
+
+不要马上给一个看似完整的标准答案。先提出 3 条明显不同的解决路径：
+A｜相对稳妥；
+B｜更有突破性；
+C｜在资源有限情况下效率最高。
+
+每条说明：核心逻辑、解决哪个根因、用户价值、业务价值、所需资源、主要风险、最适合什么条件。
+
+然后用同一套标准比较，最后必须明确告诉我：你推荐哪一条，为什么。不要把最终选择重新丢给我。
+
+在推荐方案基础上形成完整方案：
+- 核心策略；
+- 关键动作与优先级；
+- 时间节奏；
+- 谁负责；
+- 需要什么资源；
+- 如何衡量；
+- 最大风险；
+- 什么情况下需要调整或停止。
+
+最终让我看到的是：为什么这样做 → 做什么 → 怎么做 → 怎么知道做对了。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>4｜设计最终交付物</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>现在策略已经确认。请重新读取题目对最终交付物的要求，再决定应该制作什么，不要默认制作网页。
+
+可能包括：【方案文档】【HTML / Demo】【数据看板】【流程图】【内容样稿】【传播素材】【其他题目明确要求的形式】。
+
+先输出：
+1）最终交付清单；
+2）每个交付物解决什么问题；
+3）内容结构；
+4）还缺哪些素材或数据。
+
+确认结构后再制作。
+
+制作原则：
+- 信息层级优先服务于判断与阅读，设计技巧只在能提升理解时使用；
+- 不编造数据；没有数据就明确标注；
+- 图表只有在帮助理解时才使用；
+- 页面设计必须来自题目内容与品牌特征，不套默认科技 Dashboard；
+- 每个交付物都应该能被业务方直接使用。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>随时可用｜纠偏</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>请再检查一下刚才这个判断。先列出它依赖的前提，区分已有证据与推断，并尝试至少一种可能的替代解释。如果核心前提发生变化，请重新推导结论，并说明为什么调整或保留原判断。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>长对话可用｜阶段总结</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>请把目前已经确认的内容压缩成一页【阶段总结】：题目与目标、已确认事实、最重要发现、已经否定的方向、当前选择及理由、仍存在的假设、最大风险、尚未解决的问题、下一步 3 个动作。不要补新内容。</pre></article></div></section><section id="comms" class="section searchable"><div class="sec-title"><div class="num">2</div><div><h2>传播推广专业加固</h2><p>受众变化、品牌主张、创意、内容、媒体、预算与指标</p></div></div><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>1｜传播课题 + 受众变化</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>请站在资深品牌传播负责人的角度，对当前业务诊断再做一层传播判断。
+
+先把问题拆开看：其中可能同时包含产品、价格、渠道、体验、信任、品牌认知、信息表达和触达效率。请判断哪些因素对结果影响最大，以及传播真正有能力改变其中哪一部分。
+
+随后聚焦目标人群：
+1）我们最希望哪一类人发生变化？为什么优先是他们？
+2）他们现在如何理解这件事、通常会怎么做？
+3）影响他们进一步行动的主要心理门槛、现实门槛和信息缺口分别是什么？
+4）希望最终形成什么新的认知、感受与行为？
+5）在哪些生活/购买/使用场景里，最容易产生注意和需求？
+6）什么人、什么演示或什么证据最有机会建立信任？
+
+输出一张【传播课题卡】：
+目标人群 / 当前状态 / 目标状态 / 核心阻力 / 关键场景 / 最可信证据 / 传播可以贡献的业务结果。
+
+最后给出一个直接、建设性的传播方向：我们建议优先通过【关键传播作用】推动【目标人群变化】，进而支持【业务结果】。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>2｜品牌主张 + 核心创意 + 传播路径</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>基于已确认的用户问题和业务目标，建立完整传播逻辑。
+
+先形成核心信息结构【Message House】：
+- 用户最终应该记住的一句话【核心主张】；
+- 3 个支撑理由；
+- 每个理由对应的真实证据【Proof】；
+- 每个证据对用户意味着什么【Human Payoff】；
+- 容易产生误读或需要保留限定条件的表达。
+
+再发展核心创意【Big Idea】。至少提出 3 个真正不同的方向，每个方向都写清：
+- 来自什么用户洞察或文化情绪；
+- 为什么这个品牌有资格讲；
+- 用户参与的理由；
+- 如何延展到内容、活动、社媒、媒体与线下；
+- 哪部分最有记忆点；
+- 容易落入俗套的地方，以及如何优化。
+
+用同一组标准比较：相关性、独特性、可证明性、延展性、可执行性、长期品牌价值。最后明确推荐一个，并说明取舍。
+
+随后设计传播路径：注意 → 理解 → 相信 → 行动 → 分享/留存。
+每一步说明：用户状态、传播任务、最合适的内容、渠道、表达主体、所需证据和下一步行为。
+
+渠道选择必须回答“它在这一步具体完成什么任务”，形成互相接力的系统。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>3｜传播运营系统 + 专业审稿</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>现在把传播方向变成可以运行和复盘的系统。
+
+【内容体系】
+建立核心母内容、证明内容、场景内容、社交参与内容、转化内容、长期沉淀内容之间的关系。说明哪些素材可以复用、哪些必须为平台重新创作。
+
+【媒体与创作者】
+按传播角色分工：权威背书、技术解释、生活场景、文化参与、社群影响、转化与长期合作。给出选择标准、Brief 重点和验收方式。
+
+【节奏】
+把项目拆成用户状态变化的阶段。对每阶段说明：要解决什么、主要动作、进入下一阶段的信号、效果偏低时优先调整什么。
+
+【预算】
+解释资源为何投在这些环节。区分购买触达、建立可信度、生产资产、促进转化和沉淀长期能力。没有真实报价时提供预算逻辑与敏感性分析方法。
+
+【指标】
+同时建立传播结果、品牌结果和业务结果，并写出数据来源与复盘频率。
+
+【风险与表达】
+检查事实准确性、广告/隐私/版权/达人合规、文化语境、品牌承诺与真实体验的一致性，以及短期流量动作对长期品牌的影响。
+
+最后以品牌传播负责人身份编辑一次整套方案：保留事实和判断，删除重复与空泛表达，优化逻辑过渡，让每个动作都能回到目标人群与业务目标。
+
+最终回答：如果用户最终只记住一件事，我们希望他记住什么？为什么这件事值得记住？</pre></article></div></section><section id="3a" class="scenario searchable"><div class="sec-title"><div class="num">3A</div><div><h2>线下体验空间 / 门店 / 品牌体验</h2><p>旗舰店、快闪、展厅、EBC · 案例迁移 + Demo + 运营 + 经营闭环</p></div></div><div class="meta-grid"><div class="meta-box"><b>什么时候用</b><p>旗舰店、体验中心、品牌空间、快闪、展台/展厅运营、客户体验空间、零售创新、O2O 体验。</p></div><div class="meta-box"><b>开始前先准备</b><p>地点/面积/周期/目标人群/产品范围/预算或资源边界/最终交付形式。缺失时可先给假设区间与验证清单。</p></div></div><details open><summary>案例素材包 · 6 个研究节点</summary><div class="case-grid"><a class="case-card" href="https://www.anker-in.com/posts/ifa2026" target="_blank" rel="noopener"><b>Anker Berlin｜把多品类放回真实生活</b><p>多品类品牌做体验空间时，优先用“用户的一天 / 家的一天”组织体验，并让员工成为跨产品体验顾问。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://www.apple.com/newsroom/2017/04/today-at-apple-bringing-new-experiences-to-every-apple-store/" target="_blank" rel="noopener"><b>Apple｜门店作为学习与社区基础设施</b><p>为 Anker 设计“持续可更新”的 Workshop / Demo / 创作者活动；让产品成为完成任务的工具。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://news.samsung.com/us/zach-overton-evolution-of-retail-how-brands-can-stay-relevant-and-drive-growth-in-the-digital-age/" target="_blank" rel="noopener"><b>Samsung 837｜体验优先、销售压力降低</b><p>对于高认知门槛科技产品，先建立兴趣与理解，再承接转化；体验顾问 KPI 不宜只看即时成交。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://www.dyson.com/discover/innovation/rethinking-technology/reinventing-retail-virtual-dyson-demo-store" target="_blank" rel="noopener"><b>Dyson Demo｜把技术差异变成现场证据</b><p>每个核心技术卖点都设计“可操作—可比较—可看到结果”的 Demo。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://about.nike.com/en/newsroom/releases/nike-nyc-house-of-innovation-000" target="_blank" rel="noopener"><b>Nike House of Innovation｜数据、数字服务与模块化零售</b><p>设计“空间可更新能力”、线上 App/小程序辅助、会员数据闭环，而不只做一次性装修。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://www.lego.com/en-gb/aboutus/news/2019/october/lego-house-grand-opening" target="_blank" rel="noopener"><b>LEGO House｜体验分区对应品牌哲学</b><p>Anker 的分区可以围绕“生活问题 / 能力 / 场景”形成清晰的体验教育逻辑。</p><span>原始案例 ↗</span></a></div><div class="source-note">案例用于迁移机制；品牌/平台/供应商案例中的效果数据保留原始来源口径。完整来源分类见 references/scenario-case-packs/source-register.csv。</div></details><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>A｜案例迁移 + 空间角色判断</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>请先读取线下体验空间案例素材包，并结合本题材料做一次【案例迁移分析】。
+
+不要复述案例历史。请做一张表：案例 / 最值得借鉴的机制 / 它解决的用户或业务问题 / 迁移到本题的具体方式 / 可能不适用的条件。
+
+随后判断本项目空间承担的角色，并明确主次：
+销售与转化、品牌体验、技术教育、会员关系、媒体内容、用户研究、售后服务、社区活动。
+
+输出：
+1）一句话空间任务；
+2）主角色 + 2 个次角色；
+3）目标人群来这里要完成的真实任务【Jobs to be Done】；
+4）网上购物或普通卖场无法完全替代的体验价值；
+5）本空间最值得形成的长期资产。
+
+成功标准：看完这一页，业务负责人应该能判断“为什么值得做这个空间，以及空间最优先服务什么”。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>B｜体验叙事 + 动线 + 分区架构</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>现在把空间任务发展成完整体验架构。
+
+先给 2–3 种分区逻辑，例如：生活场景、用户任务、Anker for You / Anker for Home、技术能力、产品类别或混合方式。逐一比较信息清晰度、体验自然度、未来更新能力和运营难度，明确推荐一套。
+
+设计从“看到门店”到“离店后继续关系”的完整用户旅程：
+吸引 → 进入 → 快速理解 → 深度体验 → 证明价值 → 咨询/选择 → 购买或留资 → 分享 → 后续服务。
+
+对每个核心区域写清：
+- 这个区域回答用户什么问题；
+- 主要产品/内容；
+- 用户动作；
+- 员工动作；
+- 最关键的可感知结果；
+- 进入下一步的自然引导。
+
+补充空间节奏：强吸引点、停留点、安静理解区、社交/拍摄点、咨询区、服务区之间如何避免互相干扰。
+
+成功标准：用户不看说明书也能理解路线；每个区域都有明确任务；多品类之间形成关系而非堆货。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>C｜Demo 设计 + 技术证明 + 内容生产</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>为每个核心产品/技术设计一个真正可以运行的体验脚本【Demo Script】。
+
+每个 Demo 按以下格式：
+1）用户先看到/遇到什么真实问题；
+2）用户亲手做什么；
+3）产品发生什么变化；
+4）结果如何被看见、听见、比较或量化；
+5）体验顾问如何用 20 秒解释；
+6）有哪些限定条件需要诚实说明；
+7）如何自然形成短视频、照片或媒体可拍素材；
+8）设备故障/排队时的备用版本。
+
+优先参考 Dyson“技术可证明”、Apple“学习任务”、Samsung 837“兴趣场景”的机制，但最终表达必须适合 Anker 的真实产品。
+
+另外设计 1 个跨品类体验，展示多个设备一起完成一个生活任务，体现 One Anker 的整体价值。
+
+成功标准：核心卖点尽量由体验证明，而不只由员工口头说明；Demo 3 分钟内可完成、易复位、可重复、可维护。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>D｜运营系统 + 人员 + 内容日历</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>把空间设计成一个能持续运行 12 个月的系统。
+
+请建立：
+【日常】自由体验、固定 Demo、售后/咨询；
+【每周】Workshop / 主题体验；
+【每月】新品、达人、用户社群、设计/科技话题；
+【节点】大促、IFA/CES 后新品、节日、当地文化事件；
+【媒体】新品预览、采访、拍摄、行业活动。
+
+设计体验顾问角色：培训内容、开场方式、需求诊断、Demo、跨品类推荐、会员承接、售后交接；同时说明如何避免过度销售压力。
+
+建立内容生产机制：哪些现场事件会持续产出品牌自有内容、KOL 内容、UGC、FAQ、用户洞察。
+
+补充空间更新机制：哪些部分是长期固定资产，哪些模块 4–8 周可以更换，避免半年后失去新鲜感。
+
+成功标准：空间即使没有“开业热度”也有稳定理由让用户、媒体和社区再次回来。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>E｜经营闭环 + KPI + 最终交付验收</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>现在完成空间的经营与验收设计。
+
+建立三层指标：
+1）经营：客流、有效体验、体验→咨询、咨询→购买、客单、连带、多品类购买、服务效率；
+2）品牌：停留、Demo 完成率、核心信息理解、UGC/媒体、NPS/推荐意愿、品牌搜索；
+3）用户资产：会员新增、可触达用户、活动复访、售后满意、社群参与。
+
+没有真实基准时给公式、采集方式和“达到什么趋势就加码/优化/收缩”的判断逻辑，不编目标数。
+
+给 30/90/180 天学习计划：每阶段最需要验证什么，什么结果会改变空间内容、人员配置或活动策略。
+
+最后检查方案是否同时回答：为什么来 / 来了做什么 / 为什么相信 / 如何持续来 / 如何转化 / 如何更新 / 如何衡量。
+
+如果题目要求 HTML，再调用通用交付模块，页面至少清楚呈现：定位、用户旅程、空间架构、核心 Demo、运营日历、指标与阶段路线图。</pre></article></div><details><summary>注意避免</summary><div class="source-note"><ul><li>每个区域都是“屏幕 + 展板 + 产品台”；</li><li>为拍照造景却与产品价值弱相关；</li><li>把销售、会员、扫码塞进每一步造成体验摩擦；</li><li>固定重装置太多、更新成本过高；</li><li>活动很热闹但没有数据、内容和用户关系沉淀。</li></ul></div></details></section><section id="3b" class="scenario searchable"><div class="sec-title"><div class="num">3B</div><div><h2>海外新品 GTM</h2><p>市场进入、定位、首批口碑、渠道接力、本地化、经济性</p></div></div><div class="meta-grid"><div class="meta-box"><b>什么时候用</b><p>海外新品上市、市场进入、GTM、预售/众筹、跨境电商新品、区域市场推广、落地页与上市传播。</p></div><div class="meta-box"><b>开始前先准备</b><p>产品事实与价格、目标市场候选、目标用户、上市时间、渠道/库存/售后条件、预算或资源边界、竞品与已有品牌资产。缺失时先列证据缺口和验证优先级。</p></div></div><details><summary>案例素材包 · 5 个研究节点</summary><div class="case-grid"><a class="case-card" href="https://www.kickstarter.com/projects/ankermake/eufymake-e1-the-first-personal-3d-textured-uv-printer" target="_blank" rel="noopener"><b>eufyMake E1 Kickstarter｜先形成强证据与核心人群，再放大需求</b><p>新品早期需要“核心人群 + 明确任务 + 可验证 Demo + 社会证明”，首批用户既是收入，也是评价与内容来源。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://ads.tiktok.com/business/en/inspiration/samsung-tiktok-case-study" target="_blank" rel="noopener"><b>Samsung Galaxy S24 × TikTok｜让全漏斗渠道各司其职</b><p>把“预热—发布—解释—转化—口碑”拆成不同任务，再匹配渠道。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://ads.tiktok.com/business/en-US/inspiration/samsung-peru-traffic" target="_blank" rel="noopener"><b>Samsung S23 Peru｜阶段化叙事</b><p>把上市理解为一系列用户状态变化；每一阶段有清晰进入条件和下一步。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://ads.tiktok.com/business/th/inspiration/lenovo-963df" target="_blank" rel="noopener"><b>Lenovo 多市场 Creator Launch｜本地创作者重写全球核心信息</b><p>统一核心卖点 + 本地创作者自己的内容语言，比全球同一条素材直译更自然。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://ads.tiktok.com/business/en/inspiration/sony-tiktok-top-feed-branded-effect" target="_blank" rel="noopener"><b>Sony LinkBuds｜媒介特性与产品特性对齐</b><p>先问“哪个渠道天然能证明这个产品”，再决定投放；不要从平台清单出发。</p><span>原始案例 ↗</span></a></div><div class="source-note">案例用于迁移机制；品牌/平台/供应商案例中的效果数据保留原始来源口径。完整来源分类见 references/scenario-case-packs/source-register.csv。</div></details><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>A｜案例迁移 + 市场进入判断</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>读取 GTM 案例包后，先整理 3–5 个对本题最有价值的机制：早期社会证明、分阶段上市、creator 本地化、渠道任务分工、评价形成、媒介与产品特性匹配等。
+
+结合题目建立【市场进入判断】：
+- 优先市场为什么值得进入；
+- 核心人群是谁，现有替代方案是什么；
+- 购买决策里最大的功能、价格、信任、渠道或使用门槛；
+- 这个产品最适合用什么“可证明差异”切入；
+- Why this market / Why now / Why this user / Why us 的证据分别是什么。
+
+给 2–3 个市场/人群切入组合，并明确推荐一个。成功标准：市场选择和定位都有证据，不只因为“市场大”。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>B｜定位 + 证据 + 首批口碑系统</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>建立新品的市场定位系统：
+【一句话定位】/【核心场景】/【主要替代方案】/【3 个购买理由】/【每个理由的证明】/【主要顾虑与回答】。
+
+设计首批可信口碑从哪里来：媒体评测、专业 creator、早期体验者、众筹/预售、零售体验、试用、已有用户迁移等。为每一类说明：为什么可信、需要什么 Brief、哪些事实可讲、如何避免统一口径显得像广告。
+
+形成“技术/功能 → 用户结果 → 证据 → 第三方声音”的完整链路。
+
+成功标准：用户在 30 秒内知道产品适合谁、解决什么、为什么值得多看一步；首批评价来源真实可执行。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>C｜上市阶段 + 渠道接力 + 本地化</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>把上市设计成一系列用户状态变化，并让发布日期成为其中一个关键节点。
+
+建议阶段：验证/种子期 → 预热 → Launch → 评价形成 → 放大 → 稳态。对每阶段写：
+- 用户还缺什么；
+- 最重要的传播任务；
+- 渠道和 creator 的角色；
+- 主要内容；
+- CTA；
+- 进入下一阶段的信号。
+
+官网、电商、零售、科技媒体、YouTube、TikTok/短视频、社交、CRM 各自只承担最适合的任务，并写出如何接力。
+
+本地化要检查：语言、价格表达、节日/文化、平台习惯、支付/配送、隐私广告政策、售后预期、creator 类型。统一全球核心信息，但允许本地表达机制不同。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>D｜经济性 + 供应履约 + 增长实验</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>建立 GTM 经济模型：曝光→有效访问→考虑→购买→退货/留存，并列出需要的真实数据与计算公式。
+
+同时检查库存、履约、客服、退换、评价响应、合规和价格体系能否承受推广量。如果任何环节容量不足，先给流量上限或分阶段放量方式。
+
+设计 3–5 个优先实验，例如：定位文案、creator 类型、首屏证明、offer、landing page、评价素材；每个实验写假设、变量、主要指标、最小样本/观察周期逻辑、赢了以后怎么放大。
+
+成功标准：方案既能创造需求，也能接住需求；知道什么时候加码、什么时候换素材、什么时候调整市场或库存。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>E｜最终产出成功检查</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>最终 GTM 方案至少能让业务方直接看到：市场选择、定位、用户证据、首批口碑、上市节奏、渠道职责、内容/creator、本地化、预算逻辑、供应与售后依赖、指标、实验和调整信号。
+
+检查每个动作是否对应一个明确用户状态变化。删除只有“加大曝光、铺 KOL、做矩阵”但没有任务和证据的表述。</pre></article></div><details><summary>注意避免</summary><div class="source-note"><ul><li>只因为市场规模大就优先进入；</li><li>全球统一素材直接翻译，忽略当地购买习惯和 creator 语言；</li><li>流量计划超过库存、客服、退换和售后承载能力；</li><li>首发阶段没有可信评价/第三方 Proof；</li><li>每个平台都承担从认知到成交的全部任务；</li><li>只写媒体预算，不写用户状态变化和实验学习。</li></ul></div></details></section><section id="3c" class="scenario searchable"><div class="sec-title"><div class="num">3C</div><div><h2>AI 内容生产 / 本地化</h2><p>内容供应链、母资产、多平台变体、视觉、本地化、QC</p></div></div><div class="meta-grid"><div class="meta-box"><b>什么时候用</b><p>AI 辅助内容生产、多平台内容工厂、多语言本地化、营销素材提效、批量文案/视觉、品牌内容工作流。</p></div><div class="meta-box"><b>开始前先准备</b><p>产品/品牌事实源、目标人群、平台、内容目标、品牌语气、必须保留/禁止表达、可用视觉资产、语言/地区、审核与合规角色。</p></div></div><details><summary>案例素材包 · 4 个研究节点</summary><div class="case-grid"><a class="case-card" href="https://business.adobe.com/resources/sdk/generative-ai-for-enterprise-marketing.html" target="_blank" rel="noopener"><b>Adobe｜把内容当成可治理的供应链</b><p>AI 的价值可以落在完整内容供应链：brief、母资产、变体、本地化、审核与复盘形成闭环。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://business.adobe.com/customer-success-stories/nestle.html" target="_blank" rel="noopener"><b>Nestlé × Adobe｜规模化必须同时解决品牌一致性</b><p>模板、品牌规则、可复用资产和权限治理要在生成前建立。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://www.canva.com/business/case-studies/stripe/" target="_blank" rel="noopener"><b>Stripe × Canva｜高频变体与本地化</b><p>把“母创意/母资产”和“渠道/地区变体”分开管理，先保证核心一致，再规模化。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://academy.openai.com/public/clubs/champions-ecqup/videos/recording-make-work-flow-2026-09-10" target="_blank" rel="noopener"><b>OpenAI Academy｜AI 与人的审阅边界</b><p>AI 先做研究、结构、变体、检查，人负责战略判断、品牌取舍和最终发布责任。</p><span>原始案例 ↗</span></a></div><div class="source-note">案例用于迁移机制；品牌/平台/供应商案例中的效果数据保留原始来源口径。完整来源分类见 references/scenario-case-packs/source-register.csv。</div></details><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>A｜内容供应链设计</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>读取 AI 内容案例包后，把本项目设计成一条可治理的【内容供应链】。
+
+先定义：
+- 单一事实源：产品参数、品牌主张、禁用表达、法律/合规；
+- 输入 Brief 的必填字段；
+- 母内容/母视觉是什么；
+- 哪些步骤适合 AI，哪些必须由人做判断；
+- 审核责任人和发布权限；
+- 资产如何命名、版本化和复用。
+
+输出流程图：需求 → 研究/事实 → Brief → 母创意 → 变体 → 本地化 → QC → 发布 → 数据 → 学习回写。
+
+成功标准：AI 加速不会造成事实漂移、品牌走样和版本混乱。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>B｜母内容 + 多平台变体系统</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>基于本次 Brief，先做一个高质量母内容：核心受众、使用场景、主要冲突/需求、核心信息、证据、CTA、品牌语气。
+
+母内容确认后，再针对每个平台重新设计表达。对每个平台写：
+- 用户为什么在这里看；
+- 最适合的开头/首屏；
+- 需要保留的核心证据；
+- 适合的叙事长度与节奏；
+- CTA；
+- 平台原生元素；
+- 与母稿相比具体改变了什么、为什么。
+
+把“一稿多发”升级成“一个战略核心，多种平台原生表达”。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>C｜视觉生成 + 本地化 + 规模化生产</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>视觉先确定一个清晰的 campaign art direction，再生成变体。请给 3 个不同方向并推荐一个：视觉概念、构图、人物/产品比例、场景、光线、材质、色彩、品牌识别、适合的渠道。
+
+建立生成约束：产品外观不可错、Logo/文字如何处理、需要真实摄影时不使用 AI 替代、哪些素材必须来自官方资产。
+
+本地化按“文化适配”处理：语气、幽默、人物、场景、单位、价格、节日、平台习惯和禁忌。标出必须由母语/当地市场复核的点。
+
+批量生产前先通过 2–3 个样板，再扩展到 N 个版本，避免错误规模化。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>D｜四道 QC + 测试学习</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>建立四道发布门槛：
+1）事实：参数、数字、奖项、比较与限定条件；
+2）品牌：信息层级、语气、品牌人格、视觉规范；
+3）合规：版权、肖像、广告、平台、本地法规；
+4）语言：自然、具体、没有空话和模板句，同时保留专业精度。
+
+对同一目标生成少量真正不同的变体，并明确每个变体在测试什么假设。数据回来后只把有效学习沉淀进下一轮，不追求无限变体。
+
+最终输出内容日历 + 资产清单 + 版本号 + 审核状态 + 指标 + 学习记录。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>E｜效率与质量成功标准</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>用“速度、质量、品牌一致性、可追溯性、复用率”五个维度验收 AI 内容系统。可以计算：Brief→发布周期、一次通过率、返工率、母资产复用率、本地化周期、错误率、内容表现。
+
+如果只有“写得更快、数量更多”，但审核更累或品牌更乱，说明流程仍需调整。</pre></article></div><details><summary>注意避免</summary><div class="source-note"><ul><li>一开始就批量生成，错误被规模化；</li><li>把“多平台适配”做成同一母稿机械缩写；</li><li>AI 视觉改变真实产品外观、接口、尺寸或 Logo；</li><li>本地化只有直译，没有当地平台、文化、单位、价格和禁忌适配；</li><li>只统计产量和速度，不测返工率、事实错误和品牌一致性；</li><li>为了去 AI 味改动事实、确定程度或技术限定条件。</li></ul></div></details></section><section id="3d" class="scenario searchable"><div class="sec-title"><div class="num">3D</div><div><h2>整合营销 / 品牌战役</h2><p>机会洞察、Big Idea、参与机制、渠道接力、资产与衡量</p></div></div><div class="meta-grid"><div class="meta-box"><b>什么时候用</b><p>新品/品牌 Campaign、联名、节日节点、赞助、文化事件、品牌破圈、整合传播、用户参与型战役。</p></div><div class="meta-box"><b>开始前先准备</b><p>业务目标、目标人群、产品/品牌证据、市场/地区、时间节点、预算或资源边界、已有渠道资产、最终交付要求。信息不全时先列缺口与可工作的假设区间。</p></div></div><details><summary>案例素材包 · 4 个研究节点</summary><div class="case-grid"><a class="case-card" href="https://newsroom.spotify.com/2024-12-04/10-years-spotify-wrapped/" target="_blank" rel="noopener"><b>Spotify Wrapped｜产品体验本身就是传播资产</b><p>优先寻找“用户愿意表达自己的什么”，让分享动机来自用户自身。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://www.anker-in.com/" target="_blank" rel="noopener"><b>Anker Tomorrowland｜产品功能与文化场景连接</b><p>赞助应找到“场景里的真实任务”，让产品成为事件体验的一部分。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://ads.tiktok.com/business/en/inspiration/ad-awards-duolingo-case-study" target="_blank" rel="noopener"><b>Duolingo TikTok｜品牌连续剧与文化参与</b><p>长期品牌战役需要可连续生长的人物、规则、仪式和冲突，让一次主题逐步发展成内容世界。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://ads.tiktok.com/business/en/inspiration/samsung-1048" target="_blank" rel="noopener"><b>Samsung Branded Mission｜用户共创 + 品牌选择放大</b><p>把 organic learning 和 paid amplification 串起来，降低“品牌自说自话”。</p><span>原始案例 ↗</span></a></div><div class="source-note">案例用于迁移机制；品牌/平台/供应商案例中的效果数据保留原始来源口径。完整来源分类见 references/scenario-case-packs/source-register.csv。</div></details><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>A｜案例迁移 + 战役机会判断</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>先读取整合营销案例包，只提取与本题最相关的 3–4 个机制，不复述案例历史。
+
+建立【战役机会地图】：
+- 当前业务需要改变什么；
+- 用户此刻有什么真实情绪、行为或文化张力；
+- 品牌凭什么参与这个话题【Brand Right to Play】；
+- 产品/技术有什么可以被证明的真实证据；
+- 为什么是现在；
+- 哪些社会/平台/节日/文化时刻可以成为放大器。
+
+提出 3 个明显不同的机会区。每个机会区必须包含：
+1）一句用户张力；
+2）品牌扮演的角色；
+3）最强产品/品牌证据；
+4）用户为什么愿意注意或参与；
+5）可形成的内容/事件；
+6）能留下什么长期资产；
+7）执行难点和不适用条件。
+
+用【相关性、独特性、可参与性、可证明性、可延展性、执行难度、长期资产】同一套标准比较，并明确推荐一个。
+
+成功标准：战役机会来自真实用户/文化张力与品牌资格的交集，主题和形式在此基础上自然生长。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>B｜Big Idea + 参与机制 + Campaign Architecture</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>把选定机会发展成 3 个不同的【Big Idea】方向，再选择一个继续深入。
+
+每个方向必须回答：
+- 用户最终记住什么；
+- 用户可以主动做什么、参与什么、表达什么；
+- 品牌/产品为什么自然存在；
+- 哪个画面/行为/符号能成为记忆锚点；
+- 是否能跨 15 秒短视频、长内容、线下、媒体、零售和社媒继续生长。
+
+选定后建立【Campaign Architecture】：
+Hero：核心事件/内容/高点；
+Hub：持续内容与用户承接；
+Proof：产品、技术、第三方或真实体验证明；
+Participation：用户/creator 如何参与和二创；
+Conversion：官网、电商、门店、会员等业务承接；
+Legacy：战役结束后留下什么品牌资产、用户资产、内容资产或组织方法。
+
+同时输出一张“核心信息—关键证据—主要内容—渠道—CTA”关系表，避免各渠道各讲各的。
+
+成功标准：一句话能说清创意，用户参与机制简单可懂，产品证据自然嵌入，所有模块围绕同一个核心思想。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>C｜渠道接力 + Creator / Media / Experience 分工</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>现在设计完整传播接力，不做渠道清单。
+
+按用户状态拆阶段：
+尚未注意 → 愿意停留 → 理解 → 相信 → 参与/讨论 → 行动 → 分享/复访。
+
+对每个阶段明确：
+- 用户还缺什么；
+- 最重要的信息/证据；
+- Owned / Earned / Creator / Paid / Experience / CRM 分别承担什么任务；
+- 内容格式；
+- CTA；
+- 进入下一阶段的信号。
+
+Creator 进一步分为：专业解释者、生活方式使用者、文化参与者、转化型、真实用户。说明各自为什么可信、Brief 自由度、必须保留的证据和验收方式。
+
+媒体部分给 3–5 个新闻切口，说明哪些能形成 earned media，哪些更适合品牌自有内容。
+
+成功标准：每个渠道都有独立职责，前后能接力；减少“所有平台同步发同一条物料”的低效做法。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>D｜资产工厂 + 执行节奏 + 预算逻辑</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>把战役变成可以执行和复用的【传播资产工厂】。
+
+列出：Hero Film/主视觉、短视频母素材、产品 Proof、媒体资料包、creator Brief、UGC 模板、FAQ、零售/电商素材、CRM 素材、销售工具、案例复盘、用户洞察等。
+
+对每类资产说明：
+- 谁生产；
+- 最晚何时完成；
+- 依赖哪些上游信息；
+- 可以被哪些渠道复用；
+- 哪些渠道必须重新创作而不能简单裁切。
+
+给完整时间轴：准备 → 预热 → 引爆 → 持续 → 长尾。标出关键依赖、审批节点、素材锁定日和备用方案。
+
+预算不要机械平均分配。先说明最大预算应该解决哪一个核心瓶颈，再按内容制作、creator、媒体/公关、付费放大、体验/活动、技术/页面、监测和预备金给分配逻辑。
+
+成功标准：团队能直接从时间轴和资产表开始执行；资源优先级与核心问题一致。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>E｜衡量 + 学习 + 最终交付验收</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>建立六层指标：
+1）文化/讨论：话题是否进入真实讨论；
+2）内容质量：完播、保存、深度互动、有效评论；
+3）品牌：认知、理解、信任、偏好、搜索；
+4）参与：UGC/creator 参与、活动参与、复访；
+5）业务：访问、线索、转化、销售、会员；
+6）资产：可复用素材、媒体关系、用户洞察、长期内容系列。
+
+每个指标写清：如何采集、它回答什么决策问题、什么趋势说明加码/调整/停止。
+
+设计战役中的 3–5 个学习点，例如：核心主张、creator 类型、Proof、参与机制、首屏/CTA，并说明如何用数据改变下一阶段。
+
+最终方案必须让评审一眼看到：机会洞察 → Big Idea → 参与机制 → 渠道接力 → 资产与执行 → 预算 → 指标 → 长期资产。
+
+最后做一次完整性检查：如果删掉 Logo，创意是否仍然与品牌/产品高度相关？如果用户不参与，是否仍有价值？如果某个平台失效，系统是否有替代路径？</pre></article></div><details><summary>注意避免</summary><div class="source-note"><ul><li>追热点比用户问题更重要；</li><li>slogan 很漂亮，但没有参与机制和产品 Proof；</li><li>Paid / KOL / PR 只是并列预算项，没有用户路径；</li><li>开幕/发布日过度投入，战役后一周就失去内容；</li><li>KPI 只有曝光和互动，没有品牌/业务变化；</li><li>把其他品牌的视觉形式直接复制，而没有迁移机制。</li></ul></div></details></section><section id="3e" class="scenario searchable"><div class="sec-title"><div class="num">3E</div><div><h2>PR / 媒体 / 发布会</h2><p>新闻价值、Media Kit、发言人、记者旅程、Earned Media</p></div></div><div class="meta-grid"><div class="meta-box"><b>什么时候用</b><p>新品发布会、媒体沟通、企业传播、技术发布、行业议题、媒体日、采访、新闻稿/Press Kit、展会媒体传播。</p></div><div class="meta-box"><b>开始前先准备</b><p>要发布的事实、目标受众/地区、可公开数据、可采访人员、Demo/素材、时间、合规边界、目标媒体或行业。</p></div></div><details><summary>案例素材包 · 4 个研究节点</summary><div class="case-grid"><a class="case-card" href="https://www.anker-in.com/posts/ifa2026" target="_blank" rel="noopener"><b>Anker IFA 2026｜一个事件里组织多层新闻价值</b><p>企业级发布会要同时准备公司战略、行业趋势、产品技术、消费者体验、当地市场等不同叙事入口。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://www.apple.com/newsroom/2025/09/the-all-new-apple-ginza-opens-this-friday-september-26-in-tokyo/" target="_blank" rel="noopener"><b>Apple Newsroom / Retail Openings｜用具体事实让设计故事可报道</b><p>媒体包优先提供“可以直接核验和引用的事实”，再谈形容词。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://www.dyson.com/content/dyson/us/en/newsroom/news/product/v15-detect-launch" target="_blank" rel="noopener"><b>Dyson V15 Detect｜工程事实转新闻故事</b><p>科技 PR 的核心资产包括可演示现象、研发过程、关键数据和用户后果。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://news.samsung.com/global/samsung-electronics-announces-cause-of-galaxy-note7-incidents-in-press-conference" target="_blank" rel="noopener"><b>Samsung Note7 根因发布会｜高风险议题需要第三方证据</b><p>重大信任问题的 PR 不应只靠公司声明，第三方验证与可复查方法更有价值。</p><span>原始案例 ↗</span></a></div><div class="source-note">案例用于迁移机制；品牌/平台/供应商案例中的效果数据保留原始来源口径。完整来源分类见 references/scenario-case-packs/source-register.csv。</div></details><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>A｜新闻价值地图 + 媒体分层</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>读取 PR 案例包和题目事实，先做【新闻价值地图】。
+
+从以下方向判断哪些真正成立：
+公司战略变化、行业趋势、技术/产品突破、用户影响、可验证数据、当地市场意义、人物故事、设计/体验、合作生态、公共议题。
+
+不要把公司想讲的每句话都当新闻点。对每个候选新闻点评分：新鲜度、重要性、独特性、证据强度、目标媒体相关性、可解释性、潜在质疑。
+
+针对【大众 / 商业财经 / 科技 / 行业垂直 / 设计生活方式 / 本地媒体】分别输出：
+- 读者真正关心的问题；
+- 最强标题事实；
+- 需要的证据；
+- 最适合采访谁；
+- 最可能追问的问题。
+
+最终推荐 1 个主叙事 + 2–4 个媒体切口。
+
+成功标准：每个媒体切口都包含可核验的新信息或观点，不依赖“领先、创新、重磅”等自我评价。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>B｜Message House + Media Kit + 发言人体系</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>建立媒体沟通【Message House】：
+核心结论 / 3 个支撑信息 / 每个支撑的证据 / 对行业和用户意味着什么 / 需要保留的限定条件。
+
+然后生成 Media Kit 清单：
+- 80–120 字事实摘要；
+- 5–8 条可直接引用的事实点；
+- 关键数据及来源；
+- 产品/技术/人物/空间图片；
+- Demo 视频或 B-roll；
+- 时间线；
+- 10–15 个 Q&amp;A；
+- 技术词汇表；
+- 易误解表达及准确版本；
+- 联系人与会后补充机制。
+
+设计发言人分工：高管讲战略和判断，产品/研发讲机制与边界，本地/业务负责人讲市场与执行，用户/合作伙伴在适合时提供第三方视角。
+
+为每个发言人写：3 个核心信息、3 个不能越界的点、5 个尖锐问题和建议回答结构。
+
+成功标准：媒体即使只使用资料包，也能写出事实准确、有行业意义的报道。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>C｜发布会 / 媒体体验旅程</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>从记者和 creator 的完整工作旅程设计活动：
+为什么值得来 → 到场后 5 分钟内理解什么 → 哪个 Demo 最能证明新闻点 → 谁讲什么 → 什么时候有采访 → 如何快速拿到素材 → 离场后怎样继续获得信息。
+
+输出：
+1）议程与每段的“新闻任务”；
+2）空间/展区/体验设计；
+3）最值得拍摄的 3–5 个视觉节点；
+4）媒体分组与采访安排；
+5）直播/社媒与现场关系；
+6）资料发放和会后 follow-up；
+7）技术故障、发言超时、临时质疑等备用方案。
+
+每一个现场装置、视频和演讲段落都要对应一个报道信息点，并尽量让记者通过亲自体验获得证据。
+
+成功标准：记者的时间被尊重；采访、拍摄、事实确认和素材获取都顺畅；现场体验能直接支持报道角度。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>D｜Earned Media 运营 + 媒体关系资产</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>设计四阶段媒体运营：
+会前预沟通 / embargo 或预览（如适用） → 发布日 → 会后深度 → 长尾行业议题。
+
+建立媒体名单逻辑：Tier 1 / 垂直核心 / 本地 / creator / 分析师，各自的价值、关系目标、pitch 内容和 follow-up 频率。
+
+建立媒体问答与快速响应机制：哪些问题可以现场回答，哪些需要研发/法务确认，承诺多久补充。
+
+衡量不要只看发稿量。至少看：
+目标媒体覆盖、核心信息带出率、事实准确率、独立观点/引用、正负面、Share of Voice、搜索结果、后续采访、媒体关系深度和内容二次引用。
+
+成功标准：活动结束后仍有可持续媒体议题和关系资产，而非只完成一轮新闻稿分发。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>E｜编辑视角验收</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>最后模拟三名目标媒体编辑：商业财经、科技产品、生活方式。
+
+每人只基于当前资料写：
+- 一个可能采用的标题；
+- 5 行报道摘要；
+- 还缺的事实；
+- 最想追问的一题；
+- 哪一处最像品牌宣传、需要补证据或换表达。
+
+根据结果修订 Media Kit、发言人 Q&amp;A 和现场安排。
+
+最终产出应包含：新闻价值地图、媒体分层、Message House、Media Kit、Q&amp;A、发布会旅程、媒体运营时间轴、指标和风险处理。</pre></article></div><details><summary>注意避免</summary><div class="source-note"><ul><li>每个媒体都发同一封 pitch；</li><li>新闻稿只有品牌形容词，缺少可引用事实；</li><li>高管、研发、市场说完全相同的话；</li><li>发布会大部分时间被 PPT 占用，Demo/采访时间不足；</li><li>用“发稿量”代替真正媒体影响；</li><li>对未确认技术/安全问题过度承诺。</li></ul></div></details></section><section id="3f" class="scenario searchable"><div class="sec-title"><div class="num">3F</div><div><h2>社媒增长 / 内容矩阵</h2><p>数据诊断、内容世界观、Creator/UGC、增长循环</p></div></div><div class="meta-grid"><div class="meta-box"><b>什么时候用</b><p>品牌账号增长、TikTok/Instagram/YouTube/小红书内容、creator 生态、UGC、社媒带货转品牌、内容矩阵、社区运营。</p></div><div class="meta-box"><b>开始前先准备</b><p>账号/平台、目标市场、近 30–90 天内容与指标、目标人群、产品/品牌任务、资源/团队、是否承担电商/会员/客服职能。</p></div></div><details><summary>案例素材包 · 4 个研究节点</summary><div class="case-grid"><a class="case-card" href="https://ads.tiktok.com/business/en/inspiration/ad-awards-duolingo-case-study" target="_blank" rel="noopener"><b>Duolingo｜先有角色世界，再有流量</b><p>长期账号需要稳定“人格 + 内容规则 + 反复出现的母题”，热点只在适合时成为内容变量。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://ads.tiktok.com/business/en/inspiration/samsung-1048" target="_blank" rel="noopener"><b>Samsung S21 FE｜把创作者变成共创者</b><p>内容矩阵应该给创作者足够表达空间，同时保留统一的产品证明点。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://ads.tiktok.com/business/en-US/inspiration/tiktok-shop-samsung-case-study" target="_blank" rel="noopener"><b>Samsung TikTok Shop Germany｜内容、直播、商店与广告闭环</b><p>社媒增长不只看粉丝；要能知道哪类内容负责发现、解释、互动、成交与复购。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://newsroom.spotify.com/2024-12-04/10-years-spotify-wrapped/" target="_blank" rel="noopener"><b>Spotify Wrapped｜天然分享对象</b><p>寻找用户愿意展示的身份、成就、审美、习惯或社群归属。</p><span>原始案例 ↗</span></a></div><div class="source-note">案例用于迁移机制；品牌/平台/供应商案例中的效果数据保留原始来源口径。完整来源分类见 references/scenario-case-packs/source-register.csv。</div></details><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>A｜数据诊断 + 平台角色</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>先基于现有数据定位账号瓶颈，不急着出选题。
+
+把漏斗拆成：发现 → 停留/观看 → 互动 → 品牌记忆 → 关注 → 搜索/访问 → 转化 → 复购/社群。
+最多选择 2 个当前最主要问题，并给出证据。
+
+检查内容结构：不同主题/形式/人物/时长/发布时段的表现；区分“偶然爆款”和“可重复机制”。读取评论、搜索词和用户提问，提炼真实兴趣与疑虑。
+
+随后定义各平台角色：
+- 用户为什么来到这里；
+- 品牌应该提供什么价值；
+- 主要内容形式；
+- 与其他平台怎样接力；
+- 主要指标。
+
+成功标准：每个平台有清晰角色，增长目标来自真实瓶颈，不用“多发、多追热点”作为默认答案。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>B｜内容世界观 + 支柱 + 系列化栏目</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>读取案例包，提取 2–4 个可迁移机制：稳定 persona、系列化 lore、用户身份分享、creator 共创、平台原生语言等。
+
+设计 3–5 个长期内容支柱。每个支柱写：
+用户需求 / 品牌价值 / 产品连接 / 主要格式 / 可持续素材来源 / 更新频率 / 成功信号。
+
+把支柱发展成可连续追看的【栏目/角色/规则/仪式】：
+- 用户为什么知道“下次还会发生什么”；
+- 哪些元素长期稳定；
+- 哪些元素可以随热点/新品变化；
+- 如何让产品以自然、必要的方式进入内容。
+
+至少生成 10 个具体选题，但要标明它们分别服务哪个支柱和用户状态。
+
+成功标准：账号有稳定识别和连续性，单条内容即使不爆，也能积累品牌记忆与用户关系。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>C｜Creator / UGC / Paid 放大系统</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>建立 creator 角色地图：
+专业解释者 / 科技测评 / 生活方式 / 文化参与 / 转化型 / 真实用户 / 员工专家。
+
+对每类说明：适合解决什么问题、为什么可信、内容自由度、必须保留的事实、最适合的 KPI、合作与复用方式。
+
+设计 Creator Brief：核心任务、受众、必须传达的 Proof、可自由发挥空间、禁区、素材/产品支持、交付格式和审核方式。避免把所有 creator 写成同一种脚本。
+
+UGC 机制优先寻找用户愿意表达的：身份、成果、选择、审美、习惯、挑战结果、生活改善。说明参与门槛、示例、激励、品牌如何精选/二创。
+
+Paid 只放大已经被自然数据验证或有明确任务的内容。说明什么时候使用 Spark/白名单/再营销/站外引流，以及放大的学习目标。
+
+成功标准：creator 和 UGC 能形成真实多样性，同时核心证据保持一致。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>D｜增长循环 + 评论/搜索运营 + 数据学习</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>建立增长循环：
+洞察 → 选题 → 制作 → 发布 → 评论/搜索 → 二创 → creator/UGC → 转化/会员 → 用户反馈 → 下一轮。
+
+把评论区作为产品和传播研究：按“疑问、反对、使用场景、购买障碍、功能请求、情绪、竞品比较”分类，给响应原则和可以回写到 FAQ/详情页/产品团队的内容。
+
+建立周/月复盘：
+- 继续什么；
+- 停止什么；
+- 扩大什么；
+- 下个月测试什么。
+
+每一环只保留 1–2 个真正能驱动决策的指标。给出实验日志模板：假设 / 内容变体 / 数据 / 结论 / 下一步。
+
+成功标准：账号持续变聪明，内容数据能够反向影响选题、产品表达和用户运营。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>E｜最终产出与成功控制</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>最终输出应包含：账号诊断、平台角色、内容支柱、系列栏目、30 天样例日历、creator 体系、UGC 机制、评论/搜索运营、Paid 放大原则、指标与实验机制。
+
+用四个维度验收：
+1）识别度：用户能否认出“这是 Anker 会发的内容”；
+2）持续性：团队是否能稳定生产 3 个月以上；
+3）关系：用户是否愿意评论、关注、参与和回来；
+4）业务：是否有清晰路径进入搜索、官网、电商、会员或线下体验。
+
+避免用单个爆款或单纯粉丝增长作为唯一成功标准。</pre></article></div><details><summary>注意避免</summary><div class="source-note"><ul><li>每个平台复制同一条视频；</li><li>天天追热点却没有品牌连续性；</li><li>creator 只按粉丝量分层；</li><li>UGC 机制要求用户替品牌打广告；</li><li>评论区只做客服，不沉淀洞察；</li><li>为追求“人设”损害产品事实与品牌可信度。</li></ul></div></details></section><section id="3g" class="scenario searchable"><div class="sec-title"><div class="num">3G</div><div><h2>舆情 / 危机 / 信任修复</h2><p>事实中心、行动节奏、证据更新、补救与恢复</p></div></div><div class="meta-grid"><div class="meta-box"><b>什么时候用</b><p>产品安全、隐私争议、质量问题、召回、负面舆情、错误信息、媒体质疑、平台危机、信任修复。</p></div><div class="meta-box"><b>开始前先准备</b><p>安全、法律与监管要求优先于传播目标。题目若涉及现实中的重大安全/法律事项，应明确哪些判断需要法务、质量、研发或监管确认。</p></div></div><details><summary>案例素材包 · 1 个研究节点</summary><div class="case-grid"><a class="case-card" href="https://news.samsung.com/global/statement-on-galaxy-note7" target="_blank" rel="noopener"><b>Samsung Galaxy Note7｜行动优先于修辞</b><p>安全/合规问题的第一优先级是降低继续伤害的概率；沟通围绕“事实—行动—补救—验证—更新时间”展开。</p><span>原始案例 ↗</span></a></div><div class="source-note">案例用于迁移机制；品牌/平台/供应商案例中的效果数据保留原始来源口径。完整来源分类见 references/scenario-case-packs/source-register.csv。</div></details><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>A｜事实中心 + 风险分级 + 前 2 小时动作</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>先建立唯一事实中心【Single Source of Truth】。只写：
+- 已确认事实；
+- 尚未确认；
+- 信息来源和时间；
+- 受影响对象/范围；
+- 潜在安全、隐私、法律、业务影响；
+- 谁负责继续验证；
+- 下一次更新时间。
+
+按“伤害严重度 × 扩散速度 × 不确定性 × 可逆性”做风险分级。
+
+随后给前 30 分钟 / 2 小时 / 24 小时行动清单，分别覆盖：停止继续风险、用户指引、内部升级、证据保存、客服、渠道/平台、监管/合作方沟通、公开信息占位。
+
+每个动作写负责人和触发条件。
+
+成功标准：团队先降低真实风险，并让用户清楚下一步，不因为急于发声明而放大错误信息。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>B｜利益相关者回应 + 信息节奏</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>分别为：受影响用户、普通用户、员工、客服、媒体、零售/渠道伙伴、平台、监管/合作伙伴建立沟通表。
+
+每类回答：
+他们此刻最担心什么 / 我们已知道什么 / 他们需要采取什么行动 / 哪些信息暂不能确认 / 通过什么渠道 / 下一次更新时间。
+
+公开表达建议使用：
+事实 → 当前行动 → 对受影响者的帮助/补救 → 调查/验证 → 下一次更新。
+
+生成：首份 holding statement、FAQ、客服话术、内部员工通知、媒体 Q&amp;A。保持事实核心一致，但允许细节按对象变化。
+
+成功标准：不同渠道不打架；用户能找到行动信息；对未知部分明确写“正在确认 + 下一次更新时间”。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>C｜调查证据 + 第三方验证 + 更新机制</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>设计调查和证据计划：研发/质量检查、批次/日志、用户样本、第三方实验/审计（适用时）、监管沟通、供应链追踪。
+
+为每个关键争议点建立“什么证据才能改变当前判断”。
+
+每次有新证据时：
+1）更新事实中心；
+2）判断是否改变用户行动建议；
+3）同步 FAQ / 官网 / 社媒 / 客服 / 媒体；
+4）记录版本与时间；
+5）说明旧说法为何调整。
+
+技术/安全争议需要第三方时，选择具有实际专业资格和可复查方法的机构，而非只做背书 Logo。
+
+成功标准：信息越来越接近事实，所有渠道使用同一最新版本。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>D｜补救设计 + 30/60/90 天信任恢复</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>把恢复计划落到可观察改变：
+产品/流程整改、召回/更换/退款、客服资源、质量门槛、第三方验证、透明机制、员工/渠道培训、持续用户沟通。
+
+给 30/60/90 天路线：每阶段必须完成的事实验证、用户补救、流程改变、公开证明和管理层复盘。
+
+建立指标：投诉/退换趋势、客服解决率、重复问题率、负面主题变化、媒体语义、用户调查、复购/留存、整改完成率等。
+
+说明什么结果代表可以逐步恢复常规传播，什么信号代表仍需继续整改或扩大处理。
+
+成功标准：恢复来自真实产品/流程改变和可验证证据，传播负责让改变被理解。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>E｜危机桌面推演 + 最终验收</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>对方案做一次桌面推演【Tabletop Exercise】：
+情境 1：新证据显示影响范围扩大；
+情境 2：媒体拿到与公司初始声明不一致的信息；
+情境 3：一名高影响力用户发布负面实测；
+情境 4：监管要求更严格行动；
+情境 5：内部信息被提前泄露。
+
+逐一写：谁决策、30 分钟内做什么、哪些信息更新、哪些渠道暂停、下一次用户通知是什么。
+
+最终检查普通用户是否能在 20 秒内知道：发生了什么 / 我是否受影响 / 我现在该做什么 / 公司正在做什么 / 什么时候再更新。</pre></article></div><details><summary>注意避免</summary><div class="source-note"><ul><li>在事实未确认前给绝对保证；</li><li>只关注舆情热度，忽略安全/补救；</li><li>多个部门各自发不同口径；</li><li>更新时偷偷删除旧说法，不解释变化；</li><li>在产品/流程没有改变前急于做“品牌修复 Campaign”；</li><li>用第三方背书替代真实调查方法。</li></ul></div></details></section><section id="3h" class="scenario searchable"><div class="sec-title"><div class="num">3H</div><div><h2>科技传播 / 技术转译</h2><p>技术事实、用户价值、分层表达、Proof Design、FAQ</p></div></div><div class="meta-grid"><div class="meta-box"><b>什么时候用</b><p>AI/芯片/算法/隐私/智能家居/储能/机器人/新材料等复杂技术的用户传播、媒体解释、Demo、详情页、展会讲解、销售工具。</p></div><div class="meta-box"><b>开始前先准备</b><p>技术说明、测试条件、与上一代/替代方案的比较、目标用户、真实场景、可公开数据、可演示资产、限制/边界。</p></div></div><details><summary>案例素材包 · 4 个研究节点</summary><div class="case-grid"><a class="case-card" href="https://www.dyson.com/content/dyson/us/en/newsroom/news/product/v15-detect-launch" target="_blank" rel="noopener"><b>Dyson V15 Detect｜把“不可见”变成“可见证据”</b><p>复杂技术优先设计一个用户能看到、听到、比较或操作的证明。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://www.dyson.com/discover/innovation/rethinking-technology/reinventing-retail-virtual-dyson-demo-store" target="_blank" rel="noopener"><b>Dyson Demo Store｜技术解释与现场体验绑定</b><p>技术文案、媒体材料、销售演示、线下 Demo 应共享同一套证据链。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://news.samsung.com/us/zach-overton-evolution-of-retail-how-brands-can-stay-relevant-and-drive-growth-in-the-digital-age/" target="_blank" rel="noopener"><b>Samsung 837｜从 spec 转成兴趣场景</b><p>技术传播先找到用户已经关心的事情，再把技术作为改善体验的机制。</p><span>原始案例 ↗</span></a><a class="case-card" href="https://www.anker-in.com/posts/ifa2026" target="_blank" rel="noopener"><b>Anker Berlin｜跨设备协同要通过整体场景理解</b><p>生态类技术传播不要让用户自己拼图，要直接演示“多个产品一起解决一个生活任务”。</p><span>原始案例 ↗</span></a></div><div class="source-note">案例用于迁移机制；品牌/平台/供应商案例中的效果数据保留原始来源口径。完整来源分类见 references/scenario-case-packs/source-register.csv。</div></details><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>A｜技术事实地图 + 证据等级</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>先以工程/产品视角建立【技术事实地图】，暂时不做营销表达。
+
+逐项记录：
+技术名称 / 解决的技术问题 / 核心机制 / 输入输出 / 与上一代或替代方案的差异 / 可量化结果 / 测试条件 / 限制 / 安全隐私边界 / 来源。
+
+所有“更快、更强、更智能、更安全、领先”等比较都要写清比较对象、场景和测试条件。
+
+把证据分为：官方规格、实验/benchmark、第三方测试、真实用户数据、现场 Demo、工作假设。标出哪些可以公开传播，哪些需要研发/法务确认。
+
+成功标准：技术团队阅读后认为准确；传播团队知道哪些句子可以直接说、哪些需要限定条件。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>B｜用户任务 + 可感知变化 + Message Ladder</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>对每个核心技术建立【Message Ladder】：
+技术机制 → 产品能力 → 用户场景 → 用户可以感知的变化 → 最终结果 → 证明方式。
+
+再按人群做深度分层：
+- 普通用户：我能得到什么；
+- 核心/专业用户：为什么能做到；
+- 媒体/creator：什么事实值得讲；
+- 销售/体验顾问：怎样演示和回答问题；
+- 合作伙伴/企业客户：对系统/业务意味着什么。
+
+提炼 3 个最重要用户问题和 3 个最常见误解，给准确、自然、不过度简化的回答。
+
+成功标准：用户价值与技术事实之间有可追溯链路，没有从“参数”直接跳到夸张好处。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>C｜10 秒 / 1 分钟 / 5 分钟三层表达</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>基于同一事实源生成三种深度：
+【10 秒】一句普通用户能理解、仍然准确的话；
+【1 分钟】媒体/creator 可复述，包含原理 + 用户变化 + Proof；
+【5 分钟】专业用户能理解机制、优势、测试条件、边界和适用场景。
+
+如使用比喻/类比：先说明它帮助理解哪一点，再检查哪里可能误导；必要时补一句准确解释。
+
+分别给中文和英文核心表达（若题目涉及海外），英文优先自然可说，不逐字翻译中文结构。
+
+成功标准：不同深度表达结论一致，越短越简单但不篡改事实。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>D｜Proof Design：让技术差异被看见</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>为最重要的 1–3 个技术差异设计至少四类证明候选：
+现场 Demo / 前后或竞品对比 / 数据可视化 / 第三方或真实用户证据。
+
+比较它们的：可信度、可感知性、耗时、可重复性、现场稳定性、拍摄传播性、成本和风险，推荐最合适组合。
+
+每个 Demo 写【Demo Script】：
+1）用户先遇到什么问题；
+2）输入条件；
+3）用户做什么；
+4）系统发生什么；
+5）观察结果；
+6）20 秒讲解；
+7）测试边界；
+8）异常/失败备用方案；
+9）如何拍成短视频/媒体素材。
+
+成功标准：用户尽量自己看到/听到/操作到差别；同一 Demo 可被门店、展会、媒体和内容复用。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>E｜资产系统 + FAQ + 误读防护</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>把同一技术证据转成一套统一资产：
+一张对比图 / 15 秒短视频 / 60 秒解释 / 详情页模块 / 媒体事实卡 / 销售 Demo / 展会讲解 / FAQ / 客服回答。
+
+建立“事实核心 + 渠道表达”表，确保所有资产共享同一参数、限定条件和比较对象。
+
+FAQ 至少覆盖：为什么需要它、与现有方案区别、适用/不适用场景、隐私/安全、兼容、性能边界、价格价值、常见误解。
+
+最后做【误读扫描】：哪些标题/比喻/数字最可能被媒体或用户断章取义？给更稳妥的表达。
+
+成功标准：用户能复述价值，媒体能准确引用，技术团队认可边界，现场能稳定演示，多个渠道之间不会出现不同“事实版本”。</pre></article></div><details><summary>注意避免</summary><div class="source-note"><ul><li>把实验室峰值写成所有场景体验；</li><li>技术名词堆很多，但用户仍不知道能得到什么；</li><li>为了“简单”把条件和限制删掉；</li><li>只有动画/视频，没有能验证的 Proof；</li><li>用类比制造了错误技术理解；</li><li>详情页、媒体稿、销售话术出现不同参数口径。</li></ul></div></details></section><section id="delivery" class="section searchable"><div class="sec-title"><div class="num">4</div><div><h2>交付模块</h2><p>方案、HTML / Demo、数据看板、视觉与内容样稿</p></div></div><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>A｜HTML / Demo｜设计与实现一体化</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>题目需要可打开的 HTML / Demo。核心策略已经确认，现在把它转成高质量视觉交付。
+
+【先做 Design Brief】
+在写代码前先输出：
+- 主要受众；
+- 页面最重要的业务任务；
+- 用户 30 秒内必须理解的 3 件事；
+- 信息阅读顺序；
+- 一套明确的视觉方向（3–5 个形容词 + 为什么适合本题）；
+- 关键视觉母题/图形语言；
+- 哪些内容适合图表、时间轴、流程、地图、卡片或纯文字。
+
+视觉来自具体题目和品牌内容。可以参考高水平商业提案与产品网站的精度，但不要套“科技蓝渐变 + KPI 四卡 + 所有区块圆角卡片”的默认 AI 页面。
+
+【实现原则】
+- 单文件优先，稳定性优先；
+- 如果外部 CDN 失败，核心信息仍可读；
+- 首屏直接给核心判断/概念，不放空洞 Hero 文案；
+- Typography、留白、网格、对齐比装饰更重要；
+- 每种组件只在有明确内容作用时出现；
+- 图表标题直接写结论，并注明数据来源/示意状态；
+- 交互不追求数量，优先帮助比较、切换、理解和浏览；
+- 页面需要适配常见笔记本窗口和窄屏；
+- 所有数字只来自题目、知识库或已查证来源。
+
+【完成后设计审查】
+分别以“业务负责人 / 高级视觉设计师 / 第一次看方案的人”浏览一次：
+1）最重要的内容是否最先被看到；
+2）有没有模板化、重复的卡片结构；
+3）颜色、字体、图表是否在表达同一个视觉系统；
+4）有没有为了炫技增加阅读成本；
+5）页面是否具有与本题相匹配的独特性。
+
+最后实际打开页面、点击主要交互、检查控制台/链接/布局/占位符，再汇报完成情况。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>B｜方案文档 / 提案｜结论先行 + 业务可执行</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>题目需要一份业务方案或提案。请把已经确认的分析整理成业务负责人可以快速判断并继续执行的版本。
+
+推荐结构：
+执行摘要 → 目标与约束 → 证据与洞察 → 关键判断 → 推荐策略 → 核心机制/方案 → 执行路线 → 资源与责任 → 指标与学习 → 风险与调整信号 → 附录与来源。
+
+每一章开头先给结论，再给证据和推导。图表/表格只在能缩短理解时间时使用。
+
+最终进行一次编辑：
+- 保留事实、限定条件、明确判断；
+- 删掉重复的背景、万能行业趋势、空洞形容词；
+- 把“提升品牌影响力”等模糊表达改成具体用户变化或业务结果；
+- 句子和段落保持自然节奏；
+- 专业词只在提高精度时使用，并保证普通业务读者能理解。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>C｜数据看板 / 分析页｜围绕决策组织</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>先问：业务方打开这个看板要做哪几个决定？
+
+只保留支持这些决定的指标，并给每个指标写：定义、来源、更新频率、正常/异常判断、出现异常后采取什么动作。
+
+每个图表都写一个结论型标题，例如“亚马逊占比下降，但仍是最大单一渠道”，避免只写“渠道占比”。
+
+看板至少区分：结果指标、过程指标、预警指标。支持从总览快速下钻到原因，但避免一屏塞满所有数据。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>D｜视觉/内容样稿｜先立一个强母版再扩展</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>如果题目要求 KV、社媒样稿、落地页文案、脚本或内容示例，先做一个最强母版并说明：目标受众、核心信息、视觉/语言方向、证据和 CTA。
+
+母版通过后，再扩展不同平台/尺寸/语种。保持战略核心一致，但允许表达、节奏和版式适应具体渠道。
+
+最终同时检查事实、品牌、平台规范、语言自然度与视觉一致性。</pre></article></div></section><section id="final" class="section searchable"><div class="sec-title"><div class="num">5</div><div><h2>最终验证</h2><p>建设性压力测试 + 事实 / 文件 / 页面实际检查</p></div></div><div class="prompt-stack"><article class="prompt-card searchable"><div class="pc-head"><div><h4>1｜多视角压力测试 + 优化</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>现在暂时停止扩写。请用一次建设性的【多视角压力测试】帮助方案变得更扎实。
+
+依次站在：目标用户、业务负责人、财务负责人、品牌负责人、执行团队、合作伙伴/媒体、法务与合规的角度，判断：
+- 哪些地方已经有充分依据，可以保留；
+- 哪些地方仍需要补证据或写清前提；
+- 哪些动作在现实执行里可能遇到阻力；
+- 有哪些更简单、更高效或更有体验感的替代做法；
+- 哪些风险值得提前设置观察指标与调整触发点。
+
+每个重要问题输出：
+【观察】/【影响】/【建议优化】/【需要验证的证据】/【调整触发信号】。
+
+重点挑真正影响结果的事项，不为凑数量找问题。完成后直接把成立的优化写回方案，并保留已经证明合理的部分。</pre></article><article class="prompt-card searchable"><div class="pc-head"><div><h4>2｜事实验证 + 最终交付检查</h4><span>可复制</span></div><button class="copy">复制</button></div><pre>现在进入提交前检查。请用证据决定能否提交。
+
+重新读取：①原始题目 ②交付要求 ③当前方案 ④当前文件。
+
+【要求覆盖】
+逐条编号题目要求，并指出它在最终成果中的对应位置。
+
+【事实】
+核对数字、产品参数、市场数据、案例和引用。明确区分【题目事实】【安克资料】【外部事实】【工作假设】【派生计算】。对任何仍无法确认的数字进行删除、降级或明确标注。
+
+【逻辑】
+检查关键结论是否由证据支持；检查策略、动作、指标之间是否能互相对应；补齐必要前提。
+
+【执行】
+检查负责人、时间、资源、依赖、衡量方式和调整信号是否明确。
+
+【文件】
+如果有 HTML / Demo：实际打开，点击主要交互，检查图表、链接、常见窗口宽度；搜索 TODO、TBD、placeholder、xxx、NaN、undefined、未替换【】等残留。
+
+【文字与视觉】
+删除重复和模板化表达；检查信息层级、图表是否真的帮助理解；确认视觉风格与题目和品牌一致。
+
+最后输出：
+1）本轮实际检查动作与结果；
+2）已完成的修改；
+3）仍未解决的事项；
+4）题目要求逐项对应表；
+5）最终文件清单；
+6）明确结论：可以提交 / 需要先修正哪些事项。</pre></article></div></section><section id="methods" class="section searchable"><div class="sec-title"><div class="num">+</div><div><h2>外部 Skill 方法内化</h2><p>核心能力已写进 V6；第三方安装只作为可选增强</p></div></div><div class="methods">
+<div class="method"><b>Anthropic Skill Creator</b><p>渐进式加载、清晰触发、测试题与迭代。用于控制 3 小时上下文并让专项按需加载。</p></div>
+<div class="method"><b>Anthropic Frontend Design</b><p>设计从具体 brief 和内容出发，做明确的版式、字体和视觉判断，减少模板化 UI。</p></div>
+<div class="method"><b>Anthropic Webapp Testing</b><p>网页完成前实际打开、操作、看 console/交互/移动端；有 Playwright 时优先自动化验证。</p></div>
+<div class="method"><b>Superpowers · MIT</b><p>独立任务并行、先构思再执行、计划边界清楚、完成前用新鲜证据验证。</p></div>
+<div class="method"><b>Humanizer-zh · MIT</b><p>保留事实、确定程度与作者判断，重点处理空话、重复、模板句和过度工整。</p></div>
+<div class="method"><b>V6 自测集</b><p>evals/test-cases.json 提供代表题与验收项，用于检查 Skill 是否真正提高结果。</p></div>
+</div><div class="links"><a href="https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md" target="_blank">Skill Creator ↗</a><a href="https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md" target="_blank">Frontend Design ↗</a><a href="https://github.com/anthropics/skills/blob/main/skills/webapp-testing/SKILL.md" target="_blank">Webapp Testing ↗</a><a href="https://github.com/obra/superpowers" target="_blank">Superpowers ↗</a><a href="https://github.com/op7418/Humanizer-zh" target="_blank">Humanizer-zh ↗</a></div></section></main><footer><div class="wrap">V6 · 公司情报核验截止 2026-10-11。外部案例和高动态业务信息在考试当天按需刷新。网页由 <code>scripts/build-control-room.py</code> 从 Prompt / Scenario 源文件生成，避免网页与 Skill 内容漂移。</div></footer><script>
+function jump(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
+function fallbackCopy(text){const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(ta)}
+document.addEventListener('click',e=>{const b=e.target.closest('button.copy');if(!b)return;const t=b.closest('.prompt-card').querySelector('pre').innerText;const old=b.textContent;b.textContent='已复制 ✓';b.classList.add('done');setTimeout(()=>{b.textContent=old;b.classList.remove('done')},1300);if(navigator.clipboard?.writeText){navigator.clipboard.writeText(t).catch(()=>fallbackCopy(t))}else fallbackCopy(t)});
+const q=document.getElementById('q');q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();document.querySelectorAll('.searchable').forEach(el=>{if(el.classList.contains('section')||el.classList.contains('scenario'))return;el.classList.toggle('hidden',v && !el.innerText.toLowerCase().includes(v))})});
+</script></body></html>

@@ -1,0 +1,17 @@
+﻿period,type,name,revenue_rmb_bn,share_pct,growth_pct,source_id
+2025,region,North America,14.1325646,46.31,18.95,A01
+2025,region,Europe,8.1510551,26.71,43.48,A01
+2025,region,China + Other,8.2307837,26.97,15.15,A01
+2025,channel,Amazon,15.9554457,52.29,18.91,A01
+2025,channel,Own Website,3.1348426,10.27,25.21,A01
+2025,channel,Other 3P Online,2.336919,7.66,39.2,A01
+2025,channel,Online Total,21.4272073,70.22,21.74,A01
+2025,channel,Offline,9.0871961,29.78,27.81,A01
+2026H1,region,North America,7.564056,45.55,32.7,A02
+2026H1,region,Europe,4.4323585,26.69,29.34,A02
+2026H1,region,China + Other,4.6085945,27.75,23.24,A02
+2026H1,channel,Amazon,7.6989486,46.37,19.75,A02
+2026H1,channel,Own Website,1.8370121,11.06,39.19,A02
+2026H1,channel,Other 3P Online,1.8138827,10.92,95.78,A02
+2026H1,channel,Online Total,11.349843,68.35,,A02
+2026H1,channel,Offline,5.255165,31.65,,A02

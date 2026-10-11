@@ -1,0 +1,12 @@
+﻿date,domain,event,source_id,status,note
+2011,Company,Anker Innovations founded,B01,verified-official,Stable company history
+2020,Capital,"Listed on Shenzhen ChiNext, stock code 300866",B01,verified-official,Exact listing date can be refreshed if needed
+2023,Organization/Strategy,Values evolved toward First Principle / Seek Ultimate / Grow Together; 2023 Lab becomes shared technology platform,B04;C02,mixed,2023 Lab official; value-change timing supported by interviews/official current values
+2025-03,Robotics,Official corporate article later states Anker formally released robotics strategy in March 2025,B16,verified-official,Corrects older prep note that said 2026
+2025,Marketing,Coachella official charging partnership,B10,verified-official,Experiential campaign
+2025-09-04,Brand/Product,IFA 2025: AI and robotics portfolio / refreshed brand direction,B17,verified-official,Pre-One-Anker stage
+2026-05,Marketing/Product,Anker Day 2026 in New York,B08,verified-official,"Media, buyers, influencers, demos"
+2026-05,Marketing,Tomorrowland multi-year partnership announced,B09,verified-official,Global multi-market partnership
+2026-07-02,Capital,"H shares listed on HKEX Main Board, code 00668",A03,verified-primary,A+H
+2026-09-03,Brand,One Anker unveiled at IFA 2026; five categories unified under Anker,B02;B03,verified-official,"Public announcement dated Sep 17, event Sep 3"
+2026-09-05,Retail,First standalone Anker store in Berlin opens,B02,verified-official,Scenario-based experience

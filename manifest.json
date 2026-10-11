@@ -1,0 +1,21 @@
+{
+  "name": "anker-pilot-brand-comms",
+  "version": "6.0",
+  "updated": "2026-10-11",
+  "scenario_count": 8,
+  "case_pack_count": 8,
+  "principles": [
+    "company-intelligence",
+    "progressive-disclosure",
+    "parallel-research",
+    "evidence-first",
+    "case-transfer",
+    "distinctive-frontend",
+    "webapp-testing",
+    "humanized-writing",
+    "verification-before-completion",
+    "eval-driven-iteration"
+  ],
+  "scenario_source_rows": 37,
+  "eval_case_count": 6
+}

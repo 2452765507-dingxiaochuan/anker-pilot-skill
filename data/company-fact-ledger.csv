@@ -1,0 +1,77 @@
+﻿fact_id,domain,statement,value,unit,period,source_id,source_tier,verification_status,freshness,caveat,usage_tags
+CORP-001,company,公司成立于2011年，总部位于湖南长沙,,,current,B01,B1,verified-official,current,,profile
+CORP-002,capital,A股代码300866；H股于2026-07-02在港交所主板上市，代码00668,,,2026-07-02,A03,A1,verified-primary,current,,listing
+CORP-003,scale,产品覆盖180+国家和地区,180+,countries/regions,2026H1/current,A02;B01,A2/B1,verified-primary,current,官网与半年报一致,scale
+CORP-004,scale,累计服务全球消费者超过2亿,200M+,users,2026H1/current,A02;B01,A2/B1,verified-primary,current,,scale
+CORP-005,people,2025年末员工总数6304,6304,employees,2025-12-31,A01,A1,verified-primary,current,,people
+CORP-006,people,2026H1员工总数6239,6239,employees,2026-06-30,A02,A2,verified-primary,current,,people
+CORP-007,people,2026H1研发人员3523，占员工56.47%,3523 / 56.47%,people / share,2026-06-30,A02,A2,verified-primary,current,,R&D;people
+FIN-001,financial,营业收入,175.07203,RMB 亿元,2023,A01,A1,verified-primary,historical,,financial
+FIN-002,financial,营业收入,247.10080,RMB 亿元,2024,A01,A1,verified-primary,historical,,financial
+FIN-003,financial,营业收入,305.14403,RMB 亿元,2025,A01,A1,verified-primary,current,,financial
+FIN-004,financial,归母净利润,25.45132,RMB 亿元,2025,A01,A1,verified-primary,current,,financial
+FIN-005,financial,经营活动现金流净额,4.80807,RMB 亿元,2025,A01,A1,verified-primary,current,同比-82.49%,cashflow
+FIN-006,financial,研发费用,28.92786,RMB 亿元,2025,A01,A1,verified-primary,current,占营收9.48%,R&D
+FIN-007,financial,营业收入,166.05009,RMB 亿元,2026H1,A02,A2,verified-primary,current,同比+29.05%,financial
+FIN-008,financial,归母净利润,17.02037,RMB 亿元,2026H1,A02,A2,verified-primary,current,同比+45.86%,financial
+FIN-009,financial,综合毛利率,49.82,%,2026H1,A02,A2,verified-primary,current,,margin
+FIN-010,financial,研发费用,18.69485,RMB 亿元,2026H1,A02,A2,verified-primary,current,占营收11.26%，同比+56.50%,R&D
+SEG-001,segment,充电储能收入,154.01753,RMB 亿元,2025,A01,A1,verified-primary,current,占营收50.47%,segment
+SEG-002,segment,智能创新收入,82.71292,RMB 亿元,2025,A01,A1,verified-primary,current,占营收27.11%,segment
+SEG-003,segment,智能影音收入,68.33491,RMB 亿元,2025,A01,A1,verified-primary,current,占营收22.39%,segment
+SEG-004,segment,充电储能收入,89.30215,RMB 亿元,2026H1,A02,A2,verified-primary,current,同比+31.02%，毛利率49.01%,segment
+SEG-005,segment,智能创新收入,41.86335,RMB 亿元,2026H1,A02,A2,verified-primary,current,同比+28.77%，毛利率47.41%,segment
+SEG-006,segment,智能影音收入,34.84612,RMB 亿元,2026H1,A02,A2,verified-primary,current,同比+24.53%，毛利率54.78%,segment
+REG-001,region,北美收入占比46.31%,46.31,%,2025,A01,A1,verified-primary,current,收入141.32565亿元,region
+REG-002,region,欧洲收入占比26.71%,26.71,%,2025,A01,A1,verified-primary,current,收入81.51055亿元，同比+43.48%,region
+REG-003,region,北美收入占比45.55%,45.55,%,2026H1,A02,A2,verified-primary,current,同比+32.70%,region
+REG-004,region,欧洲收入占比26.69%,26.69,%,2026H1,A02,A2,verified-primary,current,同比+29.34%,region
+CH-001,channel,线上收入占比70.22%,70.22,%,2025,A01,A1,verified-primary,current,线上收入214.27207亿元,channel
+CH-002,channel,亚马逊收入占比52.29%,52.29,%,2025,A01,A1,verified-primary,current,收入159.55446亿元,channel
+CH-003,channel,官网收入31.34843亿元,31.34843,RMB 亿元,2025,A01,A1,verified-primary,current,同比+25.21%,DTC
+CH-004,channel,线下收入占比29.78%,29.78,%,2025,A01,A1,verified-primary,current,收入90.87196亿元，同比+27.81%,retail
+CH-005,channel,亚马逊收入占比46.37%,46.37,%,2026H1,A02,A2,verified-primary,current,同比+19.75%,channel
+CH-006,channel,其他第三方线上收入同比+95.78%,95.78,% growth,2026H1,A02,A2,verified-primary,current,收入18.13883亿元,channel
+CH-007,channel,官网收入同比+39.19%,39.19,% growth,2026H1,A02,A2,verified-primary,current,收入18.37012亿元，占11.06%,DTC
+CH-008,channel,线下收入占比31.65%,31.65,%,2026H1,A02,A2,verified-primary,current,,retail
+RISK-001,risk,2025年末存货净额49.97119亿元，占资产24.90%,49.97119,RMB 亿元,2025-12-31,A01,A1,verified-primary,current,较2024年增长约54.54%（派生计算）,inventory
+RISK-002,risk,2025经营活动现金流同比下降82.49%,-82.49,%,2025,A01,A1,verified-primary,current,报告期存货增加是重要背景之一,cashflow
+RISK-003,risk,2026H1资产减值损失约4.437亿元，主要与存货可变现净值相关,4.437,RMB 亿元,2026H1,A02,A2,verified-primary,current,应结合原报告科目解释，不等同于全部报废,inventory
+BRAND-001,brand,2026年9月宣布五大品牌/品类统一到单一Anker品牌名下,,,2026-09,B02;B03,B1,verified-official,current,过渡为渐进式，旧命名仍可能在渠道出现,One Anker
+BRAND-002,brand,统一后五大类别：Anker Charging、Anker SOLIX、Anker eufy、Anker soundcore、Anker eufyMake,,,2026-09,B02;B03,B1,verified-official,current,,brand architecture
+BRAND-003,brand,One Anker分为Anker for You与Anker for Home两大体验组,,,2026-09,B02,B1,verified-official,current,,experience architecture
+TECH-001,technology,Thus为NOR Flash存算一体AI音频芯片平台；150×为相对上一代旗舰耳机芯片的内部实验峰值算力比较,,,2026,B11,B1,verified-official,current,必须保留比较基准与内部实验限定；不是通用算力绝对结论,AI;chip
+TECH-002,technology,MindBase在IFA 2026作为家庭本地AI中枢发布,,,2026-09,B02,B1,verified-official,current,围绕本地连接、智能与记忆,AI;smart home
+TECH-003,technology,公司设立2023 Lab推进跨品类底层技术研发,,,current,B04,B2,verified-official,current,覆盖多模态大模型、传感器、电芯、电机与运动控制、热工程等,R&D platform
+ORG-001,organization,2026H1公司研发人员占比56.47%,56.47,%,2026H1,A02,A2,verified-primary,current,,organization
+ORG-002,organization,官方招聘页披露1500名研发员工完成Scrum+AI转型，生产力提升44%,44,%,2026,B05,B2,verified-official,current,雇主品牌口径，非审计指标；需注明官方招聘页披露,AI Native
+ORG-003,organization,官方招聘页披露半年内构建近2000个Skills、运行800+ PAs,,,2026,B05,B2,verified-official,current,雇主品牌口径，非审计指标,AI Native
+MKT-001,marketing,Coachella 2025官方充电合作以充电基础设施+互动+创作者+SOLIX展示构成现场体验,,,2025,B10,B1,verified-official,current,,campaign
+MKT-002,marketing,Tomorrowland 2026起为多年度合作，覆盖充电/储能、soundcore耳机、直播、现场激活与产品整合,,,2026,B09,B1,verified-official,current,,campaign
+MKT-003,marketing,Anker Day 2026在纽约以keynote+hands-on demo面向媒体、零售买手和关键影响者展示新品技术,,,2026-05,B08,B1,verified-official,current,,launch
+HR-001,hiring,当前Brand Communications Specialist职责包含品牌内容创意、AI辅助内容、多渠道传播执行、媒体关系/舆情/危机,,,2026-09,B06,B2,verified-official,current,,brand communications
+HR-002,hiring,官方职业方向强调Brand & Growth、Content & Creative、Channel & Customer Management,,,2026,B07,B2,verified-official,current,,marketing
+HR-003,hiring,创始人访谈强调“成就导向/强烈想赢”以及持续学习、长期主义、结构化思维与决断力,,,2022 interview,C01,C,verified-third-party,historical,属于创始人公开访谈中的人才/创业者观点，不应冒充正式HR评分条款,talent
+COMP-001,compliance,公司官方合规声明覆盖反腐败、反贿赂及国际贸易合规,,,2025-08,B13,B2,verified-official,current,,compliance
+COMP-002,safety,官方召回页列出2025年6月多个移动电源型号召回,,,2025-06,B12,B1,verified-official,current,不同国家/地区型号列表存在差异；引用时按目标市场页面核验,safety
+CORP-008,scale,2026H1披露全球50+办公室，覆盖29个国家和地区,50+ / 29,offices / countries-regions,2026H1,A02,A2,verified-primary,current,,scale;global
+FIN-011,financial,销售费用约68.27亿元,68.268,RMB 亿元,2025,A01,A1,verified-primary,current,占营收约22.37%为派生计算,sales expense
+FIN-012,financial,销售平台费用约24.77亿元,24.7748,RMB 亿元,2025,A01,A1,verified-primary,current,占营收约8.12%为派生计算,platform
+FIN-013,financial,市场推广费用约24.21亿元,24.2139,RMB 亿元,2025,A01,A1,verified-primary,current,占营收约7.94%为派生计算,marketing spend
+FIN-014,financial,线上渠道毛利率约49.65%,49.65,%,2025,A01,A1,derived-from-primary,current,由披露收入与成本派生,channel margin
+FIN-015,financial,线下渠道毛利率约34.26%,34.26,%,2025,A01,A1,derived-from-primary,current,由披露收入与成本派生,channel margin
+FIN-016,financial,线上渠道毛利率54.00%,54.00,%,2026H1,A02,A2,verified-primary,current,,channel margin
+FIN-017,financial,线下渠道毛利率40.80%,40.80,%,2026H1,A02,A2,verified-primary,current,,channel margin
+PEO-001,people,2025年末研发/技术人员3549，占员工56.30%,3549 / 56.30%,people / share,2025-12-31,A01,A1,verified-primary,current,,R&D;people
+PEO-002,people,2025研发人员中硕士1167、博士100,1167 / 100,masters / PhD,2025-12-31,A01,A1,verified-primary,current,,R&D;people
+IP-001,technology,2025年末发明专利308、实用新型1286、外观设计1432,308 / 1286 / 1432,patents,2025-12-31,A01,A1,verified-primary,current,,IP;R&D
+IP-002,technology,2026H1发明专利363、实用新型1466、外观设计1793,363 / 1466 / 1793,patents,2026-06-30,A02,A2,verified-primary,current,,IP;R&D
+AWD-001,technology,2026H1获得29项Red Dot、16项iF；累计301项国际工业设计/创新奖,29 / 16 / 301,awards,2026H1,A02,A2,verified-primary,current,按半年报披露口径,design;awards
+ORG-004,organization,"AI Pilot官方招聘页披露已发放110,000次评估、30K+参与者",110000 / 30K+,assessments / participants,2026,B05,B2,verified-official,current,雇主品牌披露，不是审计指标,AI Native
+ORG-005,organization,官方招聘页披露日Token使用4500亿、累计超过30万亿,450B / 30T+,tokens/day / cumulative,2026,B05,B2,verified-official,current,雇主品牌披露，不是审计指标,AI Native
+ORG-006,organization,官方招聘页披露800+ PAs运行、半年近2000个Skills,800+ / ~2000,PAs / Skills,2026,B05,B2,verified-official,current,雇主品牌披露，不是审计指标,AI Native
+BRAND-004,retail,2026-09-05首家standalone Anker store于柏林开业，按生活场景而非纯品类组织体验,,,2026-09-05,B02,B1,verified-official,current,,retail;One Anker
+SC-001,supply-chain,2026H1披露仓储/履约网络覆盖欧洲、北美、中东、澳洲、东南亚、拉美等区域,,,2026H1,A02,A2,verified-primary,current,,supply chain
+MKT-004,marketing,Tomorrowland合作包含三年Belgium/Thailand直播co-presenting及Thailand舞台命名权,,,2026,B09,B1,verified-official,current,,partnership;media rights
+CULT-001,culture,使命：Ignite possibilities through ultimate innovation,,,current,B01,B1,verified-official,current,,culture
+CULT-002,culture,价值观：First Principle / Seek Ultimate / Grow Together,,,current,B01,B1,verified-official,current,,culture
